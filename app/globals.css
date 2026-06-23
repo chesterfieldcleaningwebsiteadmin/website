@@ -78,3 +78,35 @@ button {
     transform: translateY(-10px);
   }
 }
+
+/* ── Mobile floating quote button (home page only) ── */
+.mobileQuoteBtn {
+  position: fixed;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  z-index: 55;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 800;
+  font-size: 17px;
+  padding: 16px;
+  border-radius: 999px;
+  text-align: center;
+  box-shadow: 0 14px 34px -8px var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  transition: background 0.15s;
+}
+
+.mobileQuoteBtn:hover {
+  background: var(--primary-deep);
+}
+
+@media (min-width: 900px) {
+  .mobileQuoteBtn {
+    display: none;
+  }
+}

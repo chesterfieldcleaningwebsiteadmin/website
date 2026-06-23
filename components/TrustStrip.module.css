@@ -1,0 +1,38 @@
+.strip {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  padding: clamp(18px, 3vw, 24px) clamp(18px, 5vw, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px clamp(20px, 4vw, 44px);
+  align-items: center;
+  justify-content: center;
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: clamp(14px, 1.8vw, 15.5px);
+  color: var(--text);
+}
+
+.tick {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary-soft);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}

@@ -1,0 +1,209 @@
+.hero {
+  background: var(--hero-grad);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroSparkle {
+  position: absolute;
+  top: 24%;
+  right: 16%;
+  color: var(--gold);
+  animation: ccfTwinkle 3.6s ease-in-out infinite;
+}
+
+.heroInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  padding: clamp(34px, 5vw, 60px) clamp(18px, 5vw, 40px)
+    clamp(30px, 4vw, 46px);
+  text-align: center;
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.heroHeading {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: clamp(36px, 6.5vw, 60px);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  margin: 10px 0 0;
+}
+
+.heroSub {
+  font-size: clamp(17px, 2.4vw, 20px);
+  line-height: 1.55;
+  color: var(--text-soft);
+  max-width: 34em;
+  margin: 14px auto 0;
+}
+
+/* ── Body ── */
+.body {
+  padding: clamp(36px, 5vw, 70px) 0 clamp(48px, 7vw, 90px);
+}
+
+.bodyInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 clamp(18px, 5vw, 40px);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(26px, 4vw, 44px);
+  align-items: start;
+}
+
+@media (min-width: 900px) {
+  .bodyInner {
+    grid-template-columns: 1.4fr 0.85fr;
+  }
+}
+
+.formCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: clamp(24px, 4vw, 40px);
+  box-shadow: 0 22px 50px -30px rgba(40, 20, 60, 0.5);
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sideCard {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+}
+
+.sideHeading {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--text);
+  margin: 0 0 16px;
+}
+
+.contactRow {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 11px 0;
+  border-bottom: 1px solid var(--border);
+  transition: color 0.15s;
+}
+
+.contactRow:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.contactRow:hover {
+  color: var(--primary);
+}
+
+.contactIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.contactMeta {
+  display: block;
+  font-size: 12.5px;
+  color: var(--text-soft);
+}
+
+.contactValue {
+  display: block;
+  font-weight: 800;
+  font-size: 16px;
+  color: var(--text);
+}
+
+.contactEmailWrap {
+  min-width: 0;
+}
+
+.contactEmailWrap .contactValue {
+  font-size: 14px;
+  word-break: break-all;
+}
+
+/* Socials */
+.socials {
+  display: flex;
+  gap: 10px;
+}
+
+.socialBtn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 13px;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--text);
+  transition: border-color 0.15s, color 0.15s;
+}
+
+.socialBtn:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Trust card */
+.trustCard {
+  background: var(--primary-soft);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.trustItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.trustTick {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--surface);
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}

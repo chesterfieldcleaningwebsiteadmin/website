@@ -1,0 +1,97 @@
+.section {
+  background: var(--surface-alt);
+  padding: clamp(56px, 8vw, 104px) 0;
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 clamp(18px, 5vw, 40px);
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(30px, 5vw, 56px);
+  align-items: center;
+}
+
+@media (min-width: 900px) {
+  .inner {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.eyebrow {
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.heading {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: clamp(30px, 4.6vw, 46px);
+  line-height: 1.06;
+  color: var(--text);
+  margin: 10px 0 12px;
+}
+
+.intro {
+  font-size: clamp(16px, 2.2vw, 18px);
+  line-height: 1.55;
+  color: var(--text-soft);
+  margin: 0 0 22px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text);
+}
+
+.chipIcon {
+  color: var(--gold);
+}
+
+.mapPlaceholder {
+  aspect-ratio: 4 / 3;
+  border-radius: 24px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  background: repeating-linear-gradient(
+    135deg,
+    var(--secondary-soft),
+    var(--secondary-soft) 16px,
+    var(--surface) 16px,
+    var(--surface) 32px
+  );
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 24px 50px -28px rgba(40, 20, 60, 0.45);
+}
+
+.mapLabel {
+  font-family: monospace;
+  font-size: 13px;
+  color: var(--text-soft);
+  background: var(--surface);
+  border: 1px dashed var(--border);
+  padding: 10px 14px;
+  border-radius: 10px;
+  text-align: center;
+}

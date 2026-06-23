@@ -1,47 +1,60 @@
-"use client";
-
-import dynamic from "next/dynamic";
-import type { WorkspaceOptions } from "sanity";
-
-const NextStudio = dynamic(
-  () => import("next-sanity/studio").then((mod) => mod.NextStudio),
-  { ssr: false }
-);
-
-let config: WorkspaceOptions | null = null;
+import Link from "next/link";
 
 export default function StudioPage() {
-  if (!process.env.NEXT_PUBLIC_SANITY_PROJECT_ID) {
-    return (
-      <div
+  return (
+    <main
+      style={{
+        minHeight: "60vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        flexDirection: "column",
+        gap: "16px",
+        padding: "40px clamp(18px, 5vw, 40px)",
+        textAlign: "center",
+      }}
+    >
+      <h1
         style={{
-          minHeight: "100dvh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          gap: "12px",
-          fontFamily: "system-ui, sans-serif",
-          color: "#555",
-          padding: "40px",
-          textAlign: "center",
+          fontFamily: "var(--font-cormorant), 'Cormorant Garamond', serif",
+          fontSize: "clamp(28px, 5vw, 42px)",
+          color: "var(--text)",
         }}
       >
-        <h1 style={{ fontSize: "22px", color: "#2C2336" }}>
-          Sanity Studio not configured yet
-        </h1>
-        <p style={{ maxWidth: "36em", lineHeight: 1.6 }}>
-          Add <code style={{ background: "#f2ead6", padding: "2px 6px", borderRadius: "4px" }}>NEXT_PUBLIC_SANITY_PROJECT_ID</code> and{" "}
-          <code style={{ background: "#f2ead6", padding: "2px 6px", borderRadius: "4px" }}>NEXT_PUBLIC_SANITY_DATASET</code>{" "}
-          to your Vercel environment variables to unlock the CMS.
-        </p>
-      </div>
-    );
-  }
-
-  // eslint-disable-next-line @typescript-eslint/no-require-imports
-  if (!config) config = require("../../../sanity.config").default;
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  return <NextStudio config={config as any} />;
+        CMS coming soon
+      </h1>
+      <p style={{ fontSize: "17px", color: "var(--text-soft)", maxWidth: "34em", lineHeight: 1.6 }}>
+        The Sanity content studio will be set up here once the Sanity account is
+        configured. In the meantime, content is managed in{" "}
+        <code
+          style={{
+            background: "var(--surface-alt)",
+            padding: "2px 7px",
+            borderRadius: "5px",
+            fontSize: "14px",
+          }}
+        >
+          lib/data.ts
+        </code>
+        .
+      </p>
+      <Link
+        href="/"
+        style={{
+          marginTop: "8px",
+          display: "inline-flex",
+          alignItems: "center",
+          gap: "8px",
+          background: "var(--primary)",
+          color: "var(--on-primary)",
+          fontWeight: 800,
+          fontSize: "15px",
+          padding: "12px 22px",
+          borderRadius: "999px",
+        }}
+      >
+        Back to site
+      </Link>
+    </main>
+  );
 }

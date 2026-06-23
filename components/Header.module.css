@@ -1,0 +1,232 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: var(--header-bg);
+  backdrop-filter: saturate(150%) blur(12px);
+  -webkit-backdrop-filter: saturate(150%) blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 clamp(18px, 5vw, 40px);
+  height: clamp(64px, 9vw, 80px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+/* ── Brand ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  min-width: 0;
+}
+
+.logoDisc {
+  width: clamp(46px, 7vw, 56px);
+  height: clamp(46px, 7vw, 56px);
+  border-radius: 50%;
+  background: var(--ink);
+  overflow: hidden;
+  box-shadow: 0 0 0 1.5px var(--gold), 0 6px 16px rgba(20, 12, 30, 0.18);
+  flex: none;
+  position: relative;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+  min-width: 0;
+}
+
+.brandSub {
+  font-size: 10.5px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold-deep);
+}
+
+.brandName {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: clamp(19px, 3vw, 23px);
+  color: var(--text);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+/* ── Desktop nav (hidden on mobile) ── */
+.desktopNav {
+  display: none;
+  align-items: center;
+  gap: 22px;
+}
+
+.navLink {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.navLink:hover {
+  color: var(--primary);
+}
+
+/* ── Desktop actions (hidden on mobile) ── */
+.desktopActions {
+  display: none;
+  align-items: center;
+  gap: 16px;
+}
+
+.phoneLink {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 800;
+  font-size: 15px;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.phoneLink:hover {
+  color: var(--primary);
+}
+
+.phoneIconWrap {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--secondary-soft);
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 800;
+  font-size: 15px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  box-shadow: 0 8px 20px -6px var(--primary);
+  white-space: nowrap;
+  transition: background 0.15s, transform 0.15s;
+}
+
+.ctaBtn:hover {
+  background: var(--primary-deep);
+  transform: translateY(-1px);
+}
+
+/* ── Mobile actions ── */
+.mobileActions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.mobilePhone {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--secondary-soft);
+  color: var(--secondary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger {
+  width: 42px;
+  height: 42px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  background: var(--surface);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.bar {
+  width: 18px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--text);
+  display: block;
+}
+
+/* ── Mobile dropdown ── */
+.mobileMenu {
+  border-top: 1px solid var(--border);
+  background: var(--surface);
+  padding: 14px clamp(18px, 5vw, 40px) 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.mobileLink {
+  display: block;
+  padding: 13px 6px;
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+}
+
+.mobileLinkLast {
+  border-bottom: none;
+}
+
+.mobileCta {
+  display: block;
+  margin-top: 10px;
+  text-align: center;
+  background: var(--primary);
+  color: var(--on-primary);
+  font-weight: 800;
+  font-size: 16px;
+  padding: 14px;
+  border-radius: 999px;
+  transition: background 0.15s;
+}
+
+.mobileCta:hover {
+  background: var(--primary-deep);
+}
+
+/* ── Breakpoint: show desktop UI ── */
+@media (min-width: 900px) {
+  .desktopNav {
+    display: flex;
+  }
+
+  .desktopActions {
+    display: flex;
+  }
+
+  .mobileActions {
+    display: none;
+  }
+}

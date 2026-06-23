@@ -1,0 +1,153 @@
+.footer {
+  background: var(--ink);
+  color: rgba(255, 255, 255, 0.78);
+  padding: clamp(46px, 6vw, 68px) 0 0;
+}
+
+.grid {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 clamp(18px, 5vw, 40px);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: clamp(28px, 4vw, 44px);
+}
+
+/* ── Brand ── */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoDisc {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+  overflow: hidden;
+  box-shadow: 0 0 0 1.5px var(--gold);
+  flex: none;
+  position: relative;
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.brandSub {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.brandName {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: 21px;
+  color: #fff;
+}
+
+.blurb {
+  font-size: 14.5px;
+  line-height: 1.6;
+  margin-top: 16px;
+  max-width: 24em;
+}
+
+/* ── Socials ── */
+.socials {
+  display: flex;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.socialBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.socialBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--gold);
+}
+
+/* ── Columns ── */
+.colHeading {
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.contactLink {
+  display: block;
+  font-size: 14.5px;
+  margin-bottom: 12px;
+  transition: color 0.15s;
+  word-break: break-all;
+}
+
+.contactLink:hover {
+  color: var(--gold);
+}
+
+.quoteLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 800;
+  font-size: 14.5px;
+  color: var(--gold);
+  transition: color 0.15s;
+}
+
+.quoteLink:hover {
+  color: #fff;
+}
+
+.serviceLink {
+  display: block;
+  font-size: 14.5px;
+  margin-bottom: 11px;
+  transition: color 0.15s;
+}
+
+.serviceLink:hover {
+  color: var(--gold);
+}
+
+.areasText {
+  font-size: 14.5px;
+  line-height: 1.7;
+}
+
+/* ── Copyright bar ── */
+.bar {
+  max-width: 1180px;
+  margin: clamp(36px, 5vw, 52px) auto 0;
+  width: 100%;
+  padding: 20px clamp(18px, 5vw, 40px);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 18px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+}

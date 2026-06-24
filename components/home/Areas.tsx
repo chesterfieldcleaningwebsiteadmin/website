@@ -1,3 +1,4 @@
+import AreaMapClient from "./AreaMapClient";
 import styles from "./Areas.module.css";
 
 interface Props {
@@ -34,14 +35,7 @@ export default function Areas({ areas, areasIntro }: Props) {
           </div>
         </div>
         <div className={styles.mapWrap}>
-          <iframe
-            src="https://maps.google.com/maps?q=Chesterfield,+Derbyshire,+S40+1SR,+UK&t=&z=12&ie=UTF8&iwloc=&output=embed"
-            title="Map of Chesterfield and surrounding areas"
-            className={styles.map}
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
-          />
+          <AreaMapClient areas={areas} />
         </div>
       </div>
     </section>

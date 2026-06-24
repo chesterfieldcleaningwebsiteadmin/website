@@ -21,6 +21,18 @@ export interface Testimonial {
   displayOrder: number;
 }
 
+export interface HomePage {
+  heroBadge: string;
+  heroHeading: string;
+  heroSubheading: string;
+  trustItems: string[];
+  howSteps: { title: string; body: string }[];
+  whyHeading: string;
+  whyPoints: { title: string; body: string }[];
+  ctaHeading: string;
+  ctaBody: string;
+}
+
 export interface SiteSettings {
   phone: string;
   email: string;

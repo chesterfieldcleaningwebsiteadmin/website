@@ -7,28 +7,33 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Areas from "@/components/home/Areas";
 import Testimonials from "@/components/home/Testimonials";
 import CtaBand from "@/components/CtaBand";
-import { getServices, getTestimonials, getSiteSettings } from "@/lib/sanity";
+import { getServices, getTestimonials, getSiteSettings, getHomePage } from "@/lib/sanity";
 
 export const revalidate = 60;
 
 export default async function HomePage() {
-  const [services, testimonials, settings] = await Promise.all([
+  const [services, testimonials, settings, home] = await Promise.all([
     getServices(),
     getTestimonials(),
     getSiteSettings(),
+    getHomePage(),
   ]);
 
   return (
     <>
       <main>
-        <Hero />
-        <TrustStrip />
+        <Hero
+          badge={home.heroBadge}
+          heading={home.heroHeading}
+          subheading={home.heroSubheading}
+        />
+        <TrustStrip items={home.trustItems} />
         <ServicesGrid services={services} />
-        <HowItWorks />
-        <WhyChooseUs />
+        <HowItWorks steps={home.howSteps} />
+        <WhyChooseUs heading={home.whyHeading} points={home.whyPoints} />
         <Areas areas={settings.areas} areasIntro={settings.areasIntro} />
         <Testimonials testimonials={testimonials} />
-        <CtaBand />
+        <CtaBand heading={home.ctaHeading} body={home.ctaBody} />
       </main>
 
       {/* Mobile floating quote button */}

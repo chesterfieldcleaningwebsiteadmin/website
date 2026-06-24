@@ -1,7 +1,13 @@
 import Link from "next/link";
 import styles from "./Hero.module.css";
 
-export default function Hero() {
+interface Props {
+  badge: string;
+  heading: string;
+  subheading: string;
+}
+
+export default function Hero({ badge, heading, subheading }: Props) {
   return (
     <section className={styles.hero}>
       {/* decorative sparkles */}
@@ -46,17 +52,17 @@ export default function Hero() {
                 fill="currentColor"
               />
             </svg>
-            Local · family-run · fully insured
+            {badge}
           </span>
           <h1 className={styles.heading}>
-            A little sparkle,
-            <br />a spotless home.
+            {heading.split("\n").map((line, i, arr) => (
+              <span key={i}>
+                {line}
+                {i < arr.length - 1 && <br />}
+              </span>
+            ))}
           </h1>
-          <p className={styles.subheading}>
-            Trusted, insured cleaning for homes and businesses across
-            Chesterfield &amp; Derbyshire — delivered by a friendly, local team
-            you'll be happy to give a key to.
-          </p>
+          <p className={styles.subheading}>{subheading}</p>
           <div className={styles.ctaRow}>
             <Link href="/contact" className={styles.ctaPrimary}>
               Get quote

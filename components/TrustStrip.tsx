@@ -1,17 +1,14 @@
 import styles from "./TrustStrip.module.css";
 
-const TRUST = [
-  "Fully insured",
-  "DBS-checked",
-  "Local & family-run",
-  "5-star rated",
-];
+interface Props {
+  items: string[];
+}
 
-export default function TrustStrip() {
+export default function TrustStrip({ items }: Props) {
   return (
     <section className={styles.strip}>
       <div className={styles.inner}>
-        {TRUST.map((t) => (
+        {items.map((t) => (
           <span key={t} className={styles.item}>
             <span className={styles.tick} aria-hidden="true">
               <svg viewBox="0 0 20 20" width="13" height="13">

@@ -96,28 +96,21 @@
   transition: transform 0.2s;
 }
 
-.servicesItem:hover .chevron,
-.servicesItem:focus-within .chevron {
-  transform: rotate(180deg);
-  color: var(--primary);
-}
-
 .dropdown {
   position: absolute;
   top: calc(100% + 10px);
   left: 50%;
   transform: translateX(-50%) translateY(-6px);
   opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.15s, transform 0.15s;
+  visibility: hidden;
+  transition: opacity 0.15s, transform 0.15s, visibility 0.15s;
   z-index: 50;
   min-width: 240px;
 }
 
-.servicesItem:hover .dropdown,
-.servicesItem:focus-within .dropdown {
+.dropdownVisible {
   opacity: 1;
-  pointer-events: auto;
+  visibility: visible;
   transform: translateX(-50%) translateY(0);
 }
 

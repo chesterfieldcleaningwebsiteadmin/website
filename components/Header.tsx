@@ -16,6 +16,7 @@ const SERVICE_LINKS = [
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   function closeAll() {
     setMenuOpen(false);
@@ -46,14 +47,25 @@ export default function Header() {
         {/* Desktop nav */}
         <nav className={styles.desktopNav} aria-label="Main navigation">
           {/* Services with dropdown */}
-          <div className={styles.servicesItem}>
+          <div
+            className={styles.servicesItem}
+            onMouseEnter={() => setDropdownOpen(true)}
+            onMouseLeave={() => setDropdownOpen(false)}
+          >
             <Link href="/#services" className={styles.navLink}>
               Services
-              <svg className={styles.chevron} viewBox="0 0 24 24" width="12" height="12" aria-hidden="true">
+              <svg
+                className={styles.chevron}
+                viewBox="0 0 24 24"
+                width="12"
+                height="12"
+                aria-hidden="true"
+                style={{ transform: dropdownOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}
+              >
                 <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
               </svg>
             </Link>
-            <div className={styles.dropdown}>
+            <div className={`${styles.dropdown} ${dropdownOpen ? styles.dropdownVisible : ""}`}>
               <div className={styles.dropdownInner}>
                 {SERVICE_LINKS.map((s) => (
                   <Link key={s.slug} href={`/services/${s.slug}`} className={styles.dropdownLink}>

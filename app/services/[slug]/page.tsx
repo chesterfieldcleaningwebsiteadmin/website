@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import TrustStrip from "@/components/TrustStrip";
 import CtaBand from "@/components/CtaBand";
-import { getServices, getService } from "@/lib/sanity";
+import { getServices, getService, getHomePage } from "@/lib/sanity";
 import styles from "./service.module.css";
 
 export const revalidate = 60;
@@ -33,9 +33,10 @@ export default async function ServicePage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const [svc, allServices] = await Promise.all([
+  const [svc, allServices, home] = await Promise.all([
     getService(slug),
     getServices(),
+    getHomePage(),
   ]);
 
   if (!svc) notFound();
@@ -100,7 +101,7 @@ export default async function ServicePage({
         </div>
       </section>
 
-      <TrustStrip />
+      <TrustStrip items={home.trustItems} />
 
       {/* Included + Sidebar */}
       <section className={styles.body}>

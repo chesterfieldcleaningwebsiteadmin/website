@@ -6,6 +6,12 @@ interface Props {
   services: Service[];
 }
 
+const TILE_COLOURS = [
+  { bg: "var(--primary-soft)", fg: "var(--primary)" },
+  { bg: "var(--secondary-soft)", fg: "var(--secondary)" },
+  { bg: "var(--gold-soft)", fg: "var(--gold-deep)" },
+];
+
 export default function ServicesGrid({ services }: Props) {
   return (
     <section id="services" className={styles.section}>
@@ -19,7 +25,7 @@ export default function ServicesGrid({ services }: Props) {
           </p>
         </div>
         <div className={styles.grid}>
-          {services.map((s) => (
+          {services.map((s, i) => (
             <Link
               key={s.slug}
               href={`/services/${s.slug}`}
@@ -28,8 +34,8 @@ export default function ServicesGrid({ services }: Props) {
               <span
                 className={styles.icon}
                 style={{
-                  background: s.tileBg,
-                  color: s.tileFg,
+                  background: TILE_COLOURS[i % 3].bg,
+                  color: TILE_COLOURS[i % 3].fg,
                 }}
               >
                 <svg

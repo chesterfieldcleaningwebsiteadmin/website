@@ -10,8 +10,6 @@ export interface Service {
   included: string[];
   forWho: { title: string; body: string }[];
   photoLabel: string;
-  tileBg: string;
-  tileFg: string;
   displayOrder: number;
 }
 

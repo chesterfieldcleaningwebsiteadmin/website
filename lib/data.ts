@@ -64,8 +64,6 @@ export const SERVICES: Service[] = [
       },
     ],
     photoLabel: "sparkling-clean living room",
-    tileBg: "var(--primary-soft)",
-    tileFg: "var(--primary)",
     displayOrder: 1,
   },
   {
@@ -103,8 +101,6 @@ export const SERVICES: Service[] = [
       },
     ],
     photoLabel: "sparkling-clean kitchen after deep clean",
-    tileBg: "var(--secondary-soft)",
-    tileFg: "var(--secondary)",
     displayOrder: 2,
   },
   {
@@ -144,8 +140,6 @@ export const SERVICES: Service[] = [
       },
     ],
     photoLabel: "spotless empty rental property",
-    tileBg: "var(--gold-soft)",
-    tileFg: "var(--gold-deep)",
     displayOrder: 3,
   },
   {
@@ -185,8 +179,6 @@ export const SERVICES: Service[] = [
       },
     ],
     photoLabel: "clean modern office space",
-    tileBg: "var(--primary-soft)",
-    tileFg: "var(--primary)",
     displayOrder: 4,
   },
   {
@@ -226,8 +218,6 @@ export const SERVICES: Service[] = [
       },
     ],
     photoLabel: "immaculate holiday cottage bedroom",
-    tileBg: "var(--secondary-soft)",
-    tileFg: "var(--secondary)",
     displayOrder: 5,
   },
 ];

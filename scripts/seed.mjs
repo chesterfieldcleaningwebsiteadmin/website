@@ -1,0 +1,221 @@
+// Run once to import content from lib/data.ts into Sanity.
+// Requires an Editor token: SANITY_WRITE_TOKEN=xxx node scripts/seed.mjs
+import { createClient } from '@sanity/client'
+
+const token = process.env.SANITY_WRITE_TOKEN
+if (!token) {
+  console.error('Set SANITY_WRITE_TOKEN before running this script.')
+  process.exit(1)
+}
+
+const client = createClient({
+  projectId: 'uoci4hci',
+  dataset: 'production',
+  apiVersion: '2024-01-01',
+  useCdn: false,
+  token,
+})
+
+const docs = [
+  {
+    _id: 'site-settings',
+    _type: 'siteSettings',
+    businessName: 'Chesterfield Cleaning Fairies',
+    phone: '07369 255360',
+    email: 'Chesterfieldcleaningfairies@gmail.com',
+    instagramUrl: 'https://www.instagram.com/chesterfieldcleaningfairies/',
+    facebookUrl: 'https://www.facebook.com/people/Chesterfield-cleaning-fairies/61556004656005/',
+    footerBlurb: 'A local, family-run cleaning team bringing a little sparkle to homes and businesses across Chesterfield & Derbyshire.',
+    areasIntro: "Proudly based in Chesterfield and covering the surrounding Derbyshire towns and villages. Not sure if we reach you? Just ask — we're always happy to help.",
+    areas: [
+      'Chesterfield','Brampton','Walton','Hasland','Brimington',
+      'Old Whittington','Newbold','Wingerworth','Dronfield',
+      'Holymoorside','Staveley','Clay Cross','Ashgate','Calow',
+    ],
+  },
+  {
+    _id: 'service-regular-domestic-cleaning',
+    _type: 'service',
+    title: 'Regular domestic cleaning',
+    slug: { _type: 'slug', current: 'regular-domestic-cleaning' },
+    eyebrow: 'Domestic cleaning',
+    shortBlurb: 'Reliable weekly or fortnightly visits that keep your home effortlessly fresh and welcoming.',
+    heroDescription: 'Reliable, friendly visits — weekly or fortnightly — that keep your home effortlessly fresh, so you can spend your time on the things that matter.',
+    priceType: 'from',
+    priceLabel: '£15/hr',
+    included: [
+      'Dusting all surfaces, shelves & skirting',
+      'Vacuuming & mopping all floors',
+      'Kitchen worktops, hob & exterior of appliances',
+      'Bathrooms cleaned, sanitised & shined',
+      'Beds made & linens changed (on request)',
+      'Mirrors & glass left streak-free',
+      'Bins emptied & fresh liners',
+      'Tidy, finishing touches throughout',
+    ],
+    forWho: [
+      { _key: 'fw1', title: 'Busy households', body: "Families and professionals who'd rather come home to calm than chores." },
+      { _key: 'fw2', title: 'A helping hand', body: 'Anyone who simply appreciates a reliable, friendly hand around the home.' },
+      { _key: 'fw3', title: 'Move-in ready', body: 'Fresh starts that deserve a spotless, welcoming space from day one.' },
+    ],
+    photoLabel: 'sparkling-clean living room',
+    displayOrder: 1,
+  },
+  {
+    _id: 'service-one-off-deep-cleans',
+    _type: 'service',
+    title: 'One-off & deep cleans',
+    slug: { _type: 'slug', current: 'one-off-deep-cleans' },
+    eyebrow: 'Deep cleaning',
+    shortBlurb: 'A thorough top-to-bottom reset for spring cleans, move-ins or those special occasions.',
+    heroDescription: 'A thorough top-to-bottom reset — for spring cleans, move-ins or special occasions when your home deserves the full treatment.',
+    priceType: 'from',
+    priceLabel: '£18/hr',
+    included: [
+      'Everything in our regular clean, plus:',
+      'Inside oven & hob deep clean',
+      'Inside fridge & freezer cleaned',
+      'Inside kitchen cupboards wiped down',
+      'Limescale removal from taps & showerheads',
+      'Skirting boards & door frames scrubbed',
+      'Window sills & ledges deep cleaned',
+      'Light switches, plug sockets & radiators',
+    ],
+    forWho: [
+      { _key: 'fw1', title: 'Spring cleaning', body: 'That satisfying annual reset that gets every corner gleaming.' },
+      { _key: 'fw2', title: 'New home move-in', body: 'Starting fresh in a new property deserves a thorough clean first.' },
+      { _key: 'fw3', title: 'Pre / post event', body: 'Getting your home ready for (or back to normal after) a special occasion.' },
+    ],
+    photoLabel: 'sparkling-clean kitchen after deep clean',
+    displayOrder: 2,
+  },
+  {
+    _id: 'service-end-of-tenancy-cleaning',
+    _type: 'service',
+    title: 'End-of-tenancy cleaning',
+    slug: { _type: 'slug', current: 'end-of-tenancy-cleaning' },
+    eyebrow: 'End of tenancy',
+    shortBlurb: 'A meticulous, landlord-ready clean designed to help secure your full deposit back.',
+    heroDescription: 'A meticulous, landlord-ready clean designed to help you secure your full deposit back — every item on the inventory, done right.',
+    priceType: 'from',
+    priceLabel: '£140',
+    included: [
+      'Full kitchen deep clean including oven & hob',
+      'All white goods cleaned inside and out',
+      'Bathrooms & en-suites fully sanitised',
+      'All floors vacuumed and mopped',
+      'All windows cleaned (interior)',
+      'Carpets vacuumed and spot-treated',
+      'Skirting boards, doors & frames cleaned',
+      'Inside all cupboards and drawers',
+      'Walls spot-cleaned where necessary',
+      'Rubbish removed',
+    ],
+    forWho: [
+      { _key: 'fw1', title: 'Outgoing tenants', body: 'Maximise your chances of getting your full deposit back, hassle-free.' },
+      { _key: 'fw2', title: 'Landlords & letting agents', body: 'A professionally cleaned property attracts better tenants faster.' },
+      { _key: 'fw3', title: 'Property investors', body: 'Maintain your asset and keep turnarounds smooth between tenancies.' },
+    ],
+    photoLabel: 'spotless empty rental property',
+    displayOrder: 3,
+  },
+  {
+    _id: 'service-commercial-office-cleaning',
+    _type: 'service',
+    title: 'Commercial & office cleaning',
+    slug: { _type: 'slug', current: 'commercial-office-cleaning' },
+    eyebrow: 'Commercial cleaning',
+    shortBlurb: 'Spotless workspaces that make the right impression, scheduled neatly around your business.',
+    heroDescription: 'Spotless workspaces that make the right impression on clients and staff alike — scheduled around your business so we\'re never in the way.',
+    priceType: 'quote',
+    priceLabel: 'Tailored quote',
+    included: [
+      'Desks, workstations & office equipment wiped down',
+      'Hard floors swept, vacuumed & mopped',
+      'Carpets vacuumed throughout',
+      'Reception & communal areas maintained',
+      'Kitchens & staff rooms cleaned and restocked',
+      'Bathrooms & toilets fully sanitised',
+      'Bins emptied & liners replaced',
+      'Touch points sanitised (handles, switches, phones)',
+      'Glass, partitions & windows cleaned',
+      'Bespoke checklist tailored to your business',
+    ],
+    forWho: [
+      { _key: 'fw1', title: 'Offices & co-working', body: 'A clean, hygienic workspace your team and clients will appreciate.' },
+      { _key: 'fw2', title: 'Retail & showrooms', body: 'Pristine presentation that reflects the quality of your brand.' },
+      { _key: 'fw3', title: 'Hospitality & clinics', body: 'Thorough, regular cleans that meet the demands of high-footfall environments.' },
+    ],
+    photoLabel: 'clean modern office space',
+    displayOrder: 4,
+  },
+  {
+    _id: 'service-airbnb-holiday-let-changeovers',
+    _type: 'service',
+    title: 'Airbnb & holiday-let changeovers',
+    slug: { _type: 'slug', current: 'airbnb-holiday-let-changeovers' },
+    eyebrow: 'Holiday let cleaning',
+    shortBlurb: 'Quick, dependable turnarounds with fresh linen and a five-star finish, every time.',
+    heroDescription: 'Quick, dependable turnarounds between guests — fresh linen, a five-star finish and everything restocked, every time.',
+    priceType: 'from',
+    priceLabel: '£35',
+    included: [
+      'Full property clean to hotel standard',
+      'Fresh bed linen made up & towels laid out',
+      'Kitchen fully cleaned, dishes washed & put away',
+      'Bathrooms sanitised & restocked',
+      'All surfaces dusted & wiped',
+      'Floors vacuumed & mopped throughout',
+      'Rubbish removed & bins relined',
+      'Welcome touches arranged (on request)',
+      'Key collection & handover arranged',
+      'Damage & maintenance checks reported',
+    ],
+    forWho: [
+      { _key: 'fw1', title: 'Airbnb hosts', body: 'Consistent five-star turnarounds that keep your rating — and reviews — glowing.' },
+      { _key: 'fw2', title: 'Holiday let owners', body: "Reliable changeovers you can trust, even when you're not nearby." },
+      { _key: 'fw3', title: 'Property managers', body: 'Scale across multiple properties with a team you can rely on.' },
+    ],
+    photoLabel: 'immaculate holiday cottage bedroom',
+    displayOrder: 5,
+  },
+  {
+    _id: 'testimonial-1',
+    _type: 'testimonial',
+    quote: 'The girls left my home absolutely gleaming — it honestly felt magical walking back in. Reliable, friendly and worth every penny.',
+    name: 'Sarah M.',
+    place: 'Walton',
+    displayOrder: 1,
+  },
+  {
+    _id: 'testimonial-2',
+    _type: 'testimonial',
+    quote: 'We use them for our office and the difference is night and day. Professional, trustworthy and always thorough.',
+    name: 'James T.',
+    place: 'Chesterfield',
+    displayOrder: 2,
+  },
+  {
+    _id: 'testimonial-3',
+    _type: 'testimonial',
+    quote: 'Brilliant end-of-tenancy clean — got my full deposit back without a quibble. Couldn\'t recommend them more.',
+    name: 'Hannah L.',
+    place: 'Hasland',
+    displayOrder: 3,
+  },
+  {
+    _id: 'testimonial-4',
+    _type: 'testimonial',
+    quote: 'Our Airbnb turnarounds are seamless now. Guests always comment on how spotless and fresh everything is.',
+    name: 'Priya K.',
+    place: 'Brimington',
+    displayOrder: 4,
+  },
+]
+
+console.log(`Seeding ${docs.length} documents...`)
+for (const doc of docs) {
+  await client.createOrReplace(doc)
+  console.log(`  ✓ ${doc._type} — ${doc._id}`)
+}
+console.log('Done.')

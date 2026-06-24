@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { getSiteSettings, getServices } from "@/lib/sanity";
+import CookieSettingsButton from "./CookieSettingsButton";
 import styles from "./Footer.module.css";
 
 export default async function Footer() {
@@ -104,7 +105,10 @@ export default async function Footer() {
 
       <div className={styles.bar}>
         <span>© 2026 Chesterfield Cleaning Fairies. Fully insured · DBS-checked.</span>
-        <span>Made with a little magic ✦</span>
+        <span className={styles.barRight}>
+          <CookieSettingsButton />
+          <span>Made with a little magic ✦</span>
+        </span>
       </div>
     </footer>
   );

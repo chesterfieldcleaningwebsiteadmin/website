@@ -151,3 +151,23 @@
   font-size: 13px;
   color: rgba(255, 255, 255, 0.6);
 }
+
+.barRight {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.cookieBtn {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 13px;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s;
+}
+
+.cookieBtn:hover {
+  color: rgba(255, 255, 255, 0.8);
+}

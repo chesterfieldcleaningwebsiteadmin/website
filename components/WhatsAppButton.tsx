@@ -1,6 +1,12 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import styles from "./WhatsAppButton.module.css";
 
 export default function WhatsAppButton({ phone }: { phone: string }) {
+  const pathname = usePathname();
+  if (pathname?.startsWith("/studio")) return null;
+
   const wa = phone.replace(/^0/, "44").replace(/\s/g, "");
   return (
     <a

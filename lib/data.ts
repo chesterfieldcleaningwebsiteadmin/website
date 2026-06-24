@@ -303,30 +303,37 @@ export const SERVICES: Service[] = [
 export const TESTIMONIALS: Testimonial[] = [
   {
     quote:
-      "The girls left my home absolutely gleaming — it honestly felt magical walking back in. Reliable, friendly and worth every penny.",
-    name: "Sarah M.",
-    place: "Walton",
+      "Tash and Lou work as a team and do such a thorough job. They take extra special care in the bathroom and kitchen, with extra touches thrown in for good measure. Thank you both — and for making us laugh too!",
+    name: "J.R.",
+    place: "Chesterfield",
     displayOrder: 1,
   },
   {
     quote:
-      "We use them for our office and the difference is night and day. Professional, trustworthy and always thorough.",
-    name: "James T.",
+      "I've been using Chesterfield Cleaning Fairies for a while now and they've been fantastic. The team goes above and beyond — even letting my dogs out while they're here, which is so thoughtful. They leave the house sparkling every time. Highly recommend!",
+    name: "Rachel A.",
     place: "Chesterfield",
     displayOrder: 2,
   },
   {
     quote:
-      "Brilliant end-of-tenancy clean — got my full deposit back without a quibble. Couldn't recommend them more.",
-    name: "Hannah L.",
-    place: "Hasland",
+      "Very professional and polite — they leave the house spotless every time. Consistently reliable and thorough, and as well as being hardworking and efficient, they're also friendly and helpful. Highly recommend!",
+    name: "Alice L.",
+    place: "Chesterfield",
     displayOrder: 3,
   },
   {
     quote:
-      "Our Airbnb turnarounds are seamless now. Guests always comment on how spotless and fresh everything is.",
-    name: "Priya K.",
-    place: "Brimington",
+      "WOW — their service is incredibly professional and thorough. Our home looks like a hotel after they've been, thanks to their amazing attention to detail. The team is so friendly, and if anything isn't quite right, they sort it straight away.",
+    name: "Samantha Y.",
+    place: "Chesterfield",
     displayOrder: 4,
+  },
+  {
+    quote:
+      "We've had our house cleaned by Chesterfield Cleaning Fairies for about a year now, and I always look forward to coming home when they've been. They clean to a high standard, show great attention to detail, and go above and beyond every time.",
+    name: "Gabriella W.",
+    place: "Chesterfield",
+    displayOrder: 5,
   },
 ];

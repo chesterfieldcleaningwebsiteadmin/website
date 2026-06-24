@@ -2,13 +2,6 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Nunito_Sans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import CookieBanner from "@/components/CookieBanner";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import PromoBanner from "@/components/PromoBanner";
-import { SITE_SETTINGS } from "@/lib/data";
-import { getPromoBanner } from "@/lib/sanity";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -62,13 +55,11 @@ export const metadata: Metadata = {
   },
 };
 
-export default async function RootLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const promoBanner = await getPromoBanner();
-
   return (
     <html lang="en" className={`${cormorant.variable} ${nunito.variable}`}>
       <head>
@@ -125,12 +116,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
-        {promoBanner && <PromoBanner banner={promoBanner} />}
-        <Header />
         {children}
-        <Footer />
-        <CookieBanner />
-        <WhatsAppButton phone={SITE_SETTINGS.phone} />
       </body>
     </html>
   );

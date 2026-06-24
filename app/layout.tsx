@@ -37,7 +37,7 @@ export const metadata: Metadata = {
   other: {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "LocalBusiness",
+      "@type": ["LocalBusiness", "HousekeepingBusiness"],
       name: "Chesterfield Cleaning Fairies",
       telephone: "+447369255360",
       email: "Chesterfieldcleaningfairies@gmail.com",

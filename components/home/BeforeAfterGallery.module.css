@@ -1,0 +1,125 @@
+.section {
+  padding: 5rem 1.25rem;
+  background: var(--surface);
+}
+
+.inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.intro {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-nunito), "Nunito Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 0.6rem;
+}
+
+.heading {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 600;
+  color: var(--primary-deep);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.sub {
+  font-size: 1rem;
+  color: var(--text-soft);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr));
+  gap: 2.5rem;
+}
+
+.pair {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.pairLabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.images {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.imageWrap {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+}
+
+.tag {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  z-index: 2;
+  font-family: var(--font-nunito), "Nunito Sans", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.52);
+  color: #fff;
+  padding: 0.2rem 0.55rem;
+  border-radius: 4px;
+  backdrop-filter: blur(4px);
+}
+
+.tagAfter {
+  background: rgba(72, 140, 100, 0.8);
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(160deg, var(--surface-alt) 0%, var(--border) 100%);
+}
+
+.placeholderAfter {
+  background: linear-gradient(160deg, var(--primary-soft) 0%, var(--gold-soft) 100%);
+}
+
+.cta {
+  margin-top: 2.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+}
+
+.ctaLink {
+  color: var(--secondary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.ctaLink:hover {
+  color: var(--gold-deep);
+}

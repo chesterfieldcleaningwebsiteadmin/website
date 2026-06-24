@@ -40,6 +40,12 @@ export interface GalleryItem {
   altText: string;
 }
 
+export interface BeforeAfterItem {
+  label: string;
+  beforeImage?: SanityImage | null;
+  afterImage?: SanityImage | null;
+}
+
 export interface HomePage {
   heroImage?: SanityImage;
   heroBadge: string;
@@ -53,6 +59,16 @@ export interface HomePage {
   ctaBody: string;
   googleReviewsUrl?: string;
   gallery?: GalleryItem[];
+  beforeAfter?: BeforeAfterItem[];
+}
+
+export interface AboutPage {
+  heading: string;
+  subheading: string;
+  storyHeading: string;
+  storyBody: string;
+  image?: SanityImage;
+  valuesHeading: string;
 }
 
 export interface StatItem {

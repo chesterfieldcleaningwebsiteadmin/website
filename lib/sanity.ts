@@ -1,6 +1,6 @@
 import { createClient } from 'next-sanity'
-import type { Service, Testimonial, SiteSettings, HomePage, PromoBanner } from './types'
-import { SITE_SETTINGS, TESTIMONIALS, SERVICES } from './data'
+import type { Service, Testimonial, SiteSettings, HomePage, PromoBanner, AboutPage } from './types'
+import { SITE_SETTINGS, TESTIMONIALS, SERVICES, ABOUT_PAGE } from './data'
 
 const HOME_PAGE_FALLBACK: HomePage = {
   heroBadge: 'Local · family-run · fully insured',
@@ -23,6 +23,10 @@ const HOME_PAGE_FALLBACK: HomePage = {
   ],
   ctaHeading: 'Ready to come home to a sparkle?',
   ctaBody: 'Get a free, no-obligation quote today. We\'ll tailor a clean that fits your home, your business and your budget.',
+  beforeAfter: [
+    { label: 'Kitchen deep clean', beforeImage: null, afterImage: null },
+    { label: 'Bathroom refresh', beforeImage: null, afterImage: null },
+  ],
 }
 
 const client = createClient({
@@ -120,12 +124,35 @@ export async function getHomePage(): Promise<HomePage> {
         gallery[] {
           image,
           altText
+        },
+        beforeAfter[] {
+          label,
+          beforeImage,
+          afterImage
         }
       }
     `)
     return result ?? HOME_PAGE_FALLBACK
   } catch {
     return HOME_PAGE_FALLBACK
+  }
+}
+
+export async function getAboutPage(): Promise<AboutPage> {
+  try {
+    const result = await client.fetch(`
+      *[_type == "aboutPage"][0] {
+        heading,
+        subheading,
+        storyHeading,
+        storyBody,
+        image,
+        valuesHeading
+      }
+    `)
+    return result ?? ABOUT_PAGE
+  } catch {
+    return ABOUT_PAGE
   }
 }
 

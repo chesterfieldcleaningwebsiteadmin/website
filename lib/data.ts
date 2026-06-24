@@ -1,4 +1,4 @@
-import type { Service, Testimonial, SiteSettings, Faq } from "./types";
+import type { Service, Testimonial, SiteSettings, AboutPage, Faq } from "./types";
 
 const COMMON_FAQS: Faq[] = [
   {
@@ -299,6 +299,16 @@ export const SERVICES: Service[] = [
     ],
   },
 ];
+
+export const ABOUT_PAGE: AboutPage = {
+  heading: "Local, friendly, and genuinely passionate about clean",
+  subheading:
+    "We're a family-run cleaning team based right here in Chesterfield — and we treat every home and business as if it were our own.",
+  storyHeading: "A little bit about us",
+  storyBody:
+    "Chesterfield Cleaning Fairies was born from a simple belief: cleaning should be one less thing you worry about. We're a local, family-run team who care deeply about the quality of our work and the trust our clients place in us.\n\nEvery member of our team is DBS-checked, fully insured, and trained to our high standards. We bring everything we need — so you don't have to lift a finger. Whether it's your home, your rental property, or your business premises, we'll leave it gleaming.\n\nWe cover Chesterfield and the surrounding Derbyshire towns and villages, and we're proud to be a team that clients genuinely trust — many give us a key and don't think twice about it. That's a responsibility we take seriously every single day.",
+  valuesHeading: "What makes us different",
+};
 
 export const TESTIMONIALS: Testimonial[] = [
   {

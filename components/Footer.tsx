@@ -92,6 +92,18 @@ export default async function Footer() {
               {s.title}
             </Link>
           ))}
+          <Link href="/pricing" className={`${styles.serviceLink} ${styles.pricingLink}`}>
+            Pricing guide
+          </Link>
+        </div>
+
+        {/* Quick links */}
+        <div>
+          <h4 className={styles.colHeading}>Company</h4>
+          <Link href="/about" className={styles.serviceLink}>About us</Link>
+          <Link href="/contact" className={styles.serviceLink}>Contact</Link>
+          <Link href="/privacy" className={styles.serviceLink}>Privacy policy</Link>
+          <Link href="/cookies" className={styles.serviceLink}>Cookie policy</Link>
         </div>
 
         {/* Areas */}

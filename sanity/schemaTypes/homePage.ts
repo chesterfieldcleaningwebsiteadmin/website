@@ -77,6 +77,23 @@ export const homePage = defineType({
         preview: { select: { title: "altText", media: "image" } },
       }],
     }),
+
+    // Before & after gallery
+    defineField({
+      name: "beforeAfter",
+      title: "Before & after gallery",
+      description: "Upload before and after photos of your cleaning work. Leave empty to hide this section.",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "label", type: "string", title: "Label (e.g. Kitchen deep clean)" },
+          { name: "beforeImage", type: "image", title: "Before photo", options: { hotspot: true } },
+          { name: "afterImage", type: "image", title: "After photo", options: { hotspot: true } },
+        ],
+        preview: { select: { title: "label", media: "afterImage" } },
+      }],
+    }),
   ],
   preview: { select: { title: "heroHeading" } },
 });

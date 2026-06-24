@@ -8,6 +8,7 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Areas from "@/components/home/Areas";
 import Testimonials from "@/components/home/Testimonials";
 import Gallery from "@/components/home/Gallery";
+import BeforeAfterGallery from "@/components/home/BeforeAfterGallery";
 import CtaBand from "@/components/CtaBand";
 import { getServices, getTestimonials, getSiteSettings, getHomePage } from "@/lib/sanity";
 
@@ -40,6 +41,7 @@ export default async function HomePage() {
         <Areas areas={settings.areas} areasIntro={settings.areasIntro} />
         <Testimonials testimonials={testimonials} googleReviewsUrl={home.googleReviewsUrl} />
         {home.gallery?.length ? <Gallery items={home.gallery} /> : null}
+        <BeforeAfterGallery items={home.beforeAfter ?? []} />
         <CtaBand heading={home.ctaHeading} body={home.ctaBody} />
       </main>
 

@@ -1,0 +1,239 @@
+.hero {
+  background: var(--hero-grad);
+  padding: 3.5rem 1.25rem 3rem;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.heroSparkle {
+  color: var(--secondary);
+  margin: 0 auto 1rem;
+  opacity: 0.7;
+}
+
+.heroInner {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-bottom: 1.25rem;
+}
+
+.breadcrumb a {
+  color: var(--text-soft);
+  transition: color 0.15s;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-nunito), "Nunito Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 0.6rem;
+}
+
+.heroHeading {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  color: var(--primary-deep);
+  line-height: 1.15;
+  margin-bottom: 0.9rem;
+}
+
+.heroSub {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  line-height: 1.65;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Body */
+
+.body {
+  padding: 4rem 1.25rem 5rem;
+}
+
+.inner {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Card */
+
+.card {
+  background: var(--surface);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  box-shadow: 0 6px 28px rgba(76, 54, 86, 0.09);
+  border-color: var(--primary-soft);
+}
+
+.cardEyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.cardTitle {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: var(--primary-deep);
+  line-height: 1.2;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 0.4rem;
+  padding: 0.6rem 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.fromLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-soft);
+}
+
+.price {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+}
+
+/* Inclusions */
+
+.included {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  flex: 1;
+}
+
+.includedItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.tick {
+  flex-shrink: 0;
+  width: 18px;
+  height: 18px;
+  background: var(--primary-soft);
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+
+.moreItems {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  padding-left: calc(18px + 0.5rem);
+  font-style: italic;
+}
+
+/* Card actions */
+
+.cardActions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.detailsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  transition: color 0.15s;
+}
+
+.detailsLink:hover {
+  color: var(--secondary);
+}
+
+.quoteBtn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1.1rem;
+  background: var(--primary);
+  color: var(--on-primary);
+  border-radius: 999px;
+  font-size: 0.825rem;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.quoteBtn:hover {
+  background: var(--primary-deep);
+}
+
+/* Note */
+
+.note {
+  text-align: center;
+  font-size: 0.875rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+}
+
+.noteLink {
+  color: var(--secondary);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.noteLink:hover {
+  color: var(--gold-deep);
+}

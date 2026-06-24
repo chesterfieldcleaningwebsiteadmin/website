@@ -2,7 +2,7 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./sanity/schemaTypes";
 
-const SINGLETONS = ["homePage", "siteSettings"];
+const SINGLETONS = ["homePage", "siteSettings", "aboutPage"];
 
 export default defineConfig({
   name: "chesterfield-cleaning-fairies",
@@ -31,6 +31,14 @@ export default defineConfig({
                 S.document()
                   .schemaType("siteSettings")
                   .documentId("siteSettings")
+              ),
+            S.listItem()
+              .title("About Page")
+              .id("aboutPage")
+              .child(
+                S.document()
+                  .schemaType("aboutPage")
+                  .documentId("aboutPage")
               ),
             S.divider(),
             S.documentTypeListItem("service").title("Services"),

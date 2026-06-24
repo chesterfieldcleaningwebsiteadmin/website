@@ -72,6 +72,10 @@ export default function Header() {
                     {s.title}
                   </Link>
                 ))}
+                <div className={styles.dropdownDivider} />
+                <Link href="/pricing" className={`${styles.dropdownLink} ${styles.dropdownPricing}`}>
+                  View pricing guide →
+                </Link>
               </div>
             </div>
           </div>
@@ -81,6 +85,9 @@ export default function Header() {
           </Link>
           <Link href="/#areas" className={styles.navLink}>
             Areas
+          </Link>
+          <Link href="/about" className={styles.navLink}>
+            About
           </Link>
           <Link href="/contact" className={styles.navLink}>
             Contact
@@ -175,6 +182,13 @@ export default function Header() {
                   {s.title}
                 </Link>
               ))}
+              <Link
+                href="/pricing"
+                onClick={closeAll}
+                className={`${styles.mobileSubLink} ${styles.mobileSubLinkPricing}`}
+              >
+                View pricing guide →
+              </Link>
             </div>
           )}
 
@@ -191,6 +205,13 @@ export default function Header() {
             className={styles.mobileLink}
           >
             Areas we cover
+          </Link>
+          <Link
+            href="/about"
+            onClick={closeAll}
+            className={styles.mobileLink}
+          >
+            About us
           </Link>
           <Link
             href="/contact"

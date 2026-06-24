@@ -322,6 +322,27 @@
   background: var(--primary-deep);
 }
 
+.dropdownDivider {
+  height: 1px;
+  background: var(--border);
+  margin: 4px 0;
+}
+
+.dropdownPricing {
+  color: var(--secondary);
+  font-style: italic;
+}
+
+.dropdownPricing:hover {
+  background: var(--secondary-soft);
+  color: var(--gold-deep);
+}
+
+.mobileSubLinkPricing {
+  color: var(--secondary);
+  font-style: italic;
+}
+
 /* ── Breakpoint: show desktop UI ── */
 @media (min-width: 900px) {
   .desktopNav {

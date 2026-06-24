@@ -5,8 +5,22 @@ import Link from "next/link";
 import Image from "next/image";
 import styles from "./Header.module.css";
 
+const SERVICE_LINKS = [
+  { title: "Regular domestic cleaning", slug: "regular-domestic-cleaning" },
+  { title: "One-off & deep cleans", slug: "one-off-deep-cleans" },
+  { title: "End-of-tenancy cleaning", slug: "end-of-tenancy-cleaning" },
+  { title: "Commercial & office cleaning", slug: "commercial-office-cleaning" },
+  { title: "Airbnb & holiday-let changeovers", slug: "airbnb-holiday-let-changeovers" },
+];
+
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [servicesOpen, setServicesOpen] = useState(false);
+
+  function closeAll() {
+    setMenuOpen(false);
+    setServicesOpen(false);
+  }
 
   return (
     <header className={styles.header}>
@@ -31,9 +45,25 @@ export default function Header() {
 
         {/* Desktop nav */}
         <nav className={styles.desktopNav} aria-label="Main navigation">
-          <Link href="/#services" className={styles.navLink}>
-            Services
-          </Link>
+          {/* Services with dropdown */}
+          <div className={styles.servicesItem}>
+            <Link href="/#services" className={styles.navLink}>
+              Services
+              <svg className={styles.chevron} viewBox="0 0 24 24" width="12" height="12" aria-hidden="true">
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </Link>
+            <div className={styles.dropdown}>
+              <div className={styles.dropdownInner}>
+                {SERVICE_LINKS.map((s) => (
+                  <Link key={s.slug} href={`/services/${s.slug}`} className={styles.dropdownLink}>
+                    {s.title}
+                  </Link>
+                ))}
+              </div>
+            </div>
+          </div>
+
           <Link href="/#how" className={styles.navLink}>
             How it works
           </Link>
@@ -93,37 +123,73 @@ export default function Header() {
       {/* Mobile dropdown */}
       {menuOpen && (
         <nav className={styles.mobileMenu} aria-label="Mobile navigation">
-          <Link
-            href="/#services"
-            onClick={() => setMenuOpen(false)}
-            className={styles.mobileLink}
-          >
-            Services
-          </Link>
+          {/* Services row with toggle */}
+          <div className={styles.mobileServicesRow}>
+            <Link
+              href="/#services"
+              onClick={closeAll}
+              className={styles.mobileLink}
+            >
+              Services
+            </Link>
+            <button
+              onClick={() => setServicesOpen((o) => !o)}
+              aria-expanded={servicesOpen}
+              aria-label={servicesOpen ? "Hide services" : "Show services"}
+              className={styles.mobileServicesToggle}
+            >
+              <svg
+                viewBox="0 0 24 24"
+                width="14"
+                height="14"
+                aria-hidden="true"
+                style={{ transform: servicesOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.2s" }}
+              >
+                <path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Service sub-links */}
+          {servicesOpen && (
+            <div className={styles.mobileSubLinks}>
+              {SERVICE_LINKS.map((s) => (
+                <Link
+                  key={s.slug}
+                  href={`/services/${s.slug}`}
+                  onClick={closeAll}
+                  className={styles.mobileSubLink}
+                >
+                  {s.title}
+                </Link>
+              ))}
+            </div>
+          )}
+
           <Link
             href="/#how"
-            onClick={() => setMenuOpen(false)}
+            onClick={closeAll}
             className={styles.mobileLink}
           >
             How it works
           </Link>
           <Link
             href="/#areas"
-            onClick={() => setMenuOpen(false)}
+            onClick={closeAll}
             className={styles.mobileLink}
           >
             Areas we cover
           </Link>
           <Link
             href="/contact"
-            onClick={() => setMenuOpen(false)}
+            onClick={closeAll}
             className={`${styles.mobileLink} ${styles.mobileLinkLast}`}
           >
             Contact
           </Link>
           <Link
             href="/contact"
-            onClick={() => setMenuOpen(false)}
+            onClick={closeAll}
             className={styles.mobileCta}
           >
             Get quote

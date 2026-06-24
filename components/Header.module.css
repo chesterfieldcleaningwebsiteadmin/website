@@ -76,9 +76,75 @@
   color: var(--text);
   white-space: nowrap;
   transition: color 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 4px;
 }
 
 .navLink:hover {
+  color: var(--primary);
+}
+
+/* ── Services dropdown ── */
+.servicesItem {
+  position: relative;
+}
+
+.chevron {
+  color: var(--text-soft);
+  flex: none;
+  transition: transform 0.2s;
+}
+
+.servicesItem:hover .chevron,
+.servicesItem:focus-within .chevron {
+  transform: rotate(180deg);
+  color: var(--primary);
+}
+
+.dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s, transform 0.15s;
+  z-index: 50;
+  min-width: 240px;
+}
+
+.servicesItem:hover .dropdown,
+.servicesItem:focus-within .dropdown {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.dropdownInner {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: 0 12px 40px -8px rgba(20, 12, 30, 0.18);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dropdownLink {
+  display: block;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+  border-radius: 8px;
+  white-space: nowrap;
+  transition: background 0.12s, color 0.12s;
+}
+
+.dropdownLink:hover {
+  background: var(--primary-soft);
   color: var(--primary);
 }
 
@@ -197,6 +263,53 @@
 
 .mobileLinkLast {
   border-bottom: none;
+}
+
+/* ── Mobile services toggle row ── */
+.mobileServicesRow {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.mobileServicesRow .mobileLink {
+  flex: 1;
+  border-bottom: none;
+}
+
+.mobileServicesToggle {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-soft);
+  flex: none;
+}
+
+/* ── Mobile service sub-links ── */
+.mobileSubLinks {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-alt, var(--surface));
+  border-bottom: 1px solid var(--border);
+}
+
+.mobileSubLink {
+  display: block;
+  padding: 11px 6px 11px 22px;
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.mobileSubLink:last-child {
+  border-bottom: none;
+}
+
+.mobileSubLink:hover {
+  color: var(--primary);
 }
 
 .mobileCta {

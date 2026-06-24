@@ -81,8 +81,8 @@ export default function ContactForm({
         </span>
         <h2 className={styles.successHeading}>Thank you!</h2>
         <p className={styles.successBody}>
-          We&rsquo;ve received your enquiry and will get back to you the same
-          day. Prefer to talk? Call us on{" "}
+          We&rsquo;ve received your enquiry and will be in touch as soon as we
+          can. Prefer to talk? Call us on{" "}
           <a href="tel:+447369255360">07369 255360</a>.
         </p>
         <button
@@ -98,7 +98,7 @@ export default function ContactForm({
   return (
     <form ref={formRef} onSubmit={handleSubmit} className={styles.form} noValidate>
       <h2 className={styles.formHeading}>Request a free quote</h2>
-      <p className={styles.formSub}>We usually reply the same day.</p>
+      <p className={styles.formSub}>We&rsquo;ll be in touch as soon as we can.</p>
 
       {/* honeypot */}
       <input

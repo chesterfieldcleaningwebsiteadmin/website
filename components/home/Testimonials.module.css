@@ -76,3 +76,26 @@
   color: var(--text-soft);
   font-weight: 600;
 }
+
+.reviewsCta {
+  margin-top: clamp(28px, 3vw, 40px);
+  text-align: center;
+}
+
+.reviewsLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--primary);
+  border: 1.5px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 999px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.reviewsLink:hover {
+  border-color: var(--primary);
+  background: var(--primary-soft);
+}

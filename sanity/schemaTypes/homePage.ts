@@ -53,6 +53,30 @@ export const homePage = defineType({
     // CTA band
     defineField({ name: "ctaHeading", title: "CTA band heading", type: "string" }),
     defineField({ name: "ctaBody", title: "CTA band body text", type: "text", rows: 2 }),
+
+    // Testimonials
+    defineField({
+      name: "googleReviewsUrl",
+      title: "Google Reviews URL",
+      description: "Paste your Google Business Profile reviews link here (e.g. from Google Maps). Shown as a 'See our Google reviews' link below testimonials.",
+      type: "url",
+    }),
+
+    // Gallery
+    defineField({
+      name: "gallery",
+      title: "Photo gallery",
+      description: "Upload photos of your work. Leave empty to hide the gallery section.",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "image", type: "image", title: "Photo", options: { hotspot: true } },
+          { name: "altText", type: "string", title: "Alt text (describe the photo)" },
+        ],
+        preview: { select: { title: "altText", media: "image" } },
+      }],
+    }),
   ],
   preview: { select: { title: "heroHeading" } },
 });

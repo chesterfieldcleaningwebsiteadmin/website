@@ -23,6 +23,28 @@ export const siteSettings = defineType({
       type: "array",
       of: [{ type: "string" }],
     }),
+    defineField({
+      name: "statsStrip",
+      title: "Stats strip",
+      type: "object",
+      description: "Numbers shown between the hero and trust strip. Toggle off to hide the strip entirely.",
+      fields: [
+        defineField({ name: "show", title: "Show stats strip", type: "boolean", initialValue: true }),
+        defineField({
+          name: "stats",
+          title: "Stats",
+          type: "array",
+          of: [{
+            type: "object",
+            fields: [
+              { name: "value", type: "string", title: "Value (e.g. 100+)" },
+              { name: "label", type: "string", title: "Label (e.g. Happy customers)" },
+            ],
+            preview: { select: { title: "value", subtitle: "label" } },
+          }],
+        }),
+      ],
+    }),
   ],
   preview: { select: { title: "businessName" } },
 });

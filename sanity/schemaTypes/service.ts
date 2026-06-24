@@ -40,6 +40,20 @@ export const service = defineType({
     defineField({ name: "mainImage", title: "Service photo", type: "image", options: { hotspot: true } }),
     defineField({ name: "photoLabel", title: "Photo label (placeholder)", type: "string" }),
     defineField({ name: "displayOrder", title: "Display order", type: "number" }),
+    defineField({
+      name: "faqs",
+      title: "Frequently asked questions",
+      description: "Questions and answers shown on this service page. Edit or add new ones — owner-editable.",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "question", type: "string", title: "Question" },
+          { name: "answer", type: "text", title: "Answer", rows: 3 },
+        ],
+        preview: { select: { title: "question" } },
+      }],
+    }),
   ],
   orderings: [{ title: "Display order", name: "displayOrder", by: [{ field: "displayOrder", direction: "asc" }] }],
   preview: { select: { title: "title", subtitle: "priceLabel" } },

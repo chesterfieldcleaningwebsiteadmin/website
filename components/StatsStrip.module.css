@@ -1,0 +1,38 @@
+.strip {
+  background: var(--primary-deep);
+  padding: clamp(20px, 3vw, 28px) 0;
+}
+
+.inner {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 clamp(18px, 5vw, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: clamp(24px, 4vw, 56px);
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.value {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-weight: 700;
+  font-size: clamp(28px, 4vw, 40px);
+  line-height: 1;
+  color: var(--gold);
+}
+
+.label {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.7);
+}

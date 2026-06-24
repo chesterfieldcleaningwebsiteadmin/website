@@ -1,6 +1,6 @@
 import { createClient } from 'next-sanity'
-import type { Service, Testimonial, SiteSettings, HomePage } from './types'
-import { SITE_SETTINGS } from './data'
+import type { Service, Testimonial, SiteSettings, HomePage, PromoBanner } from './types'
+import { SITE_SETTINGS, TESTIMONIALS, SERVICES } from './data'
 
 const HOME_PAGE_FALLBACK: HomePage = {
   heroBadge: 'Local · family-run · fully insured',
@@ -34,86 +34,139 @@ const client = createClient({
 })
 
 export async function getServices(): Promise<Service[]> {
-  return client.fetch(`
-    *[_type == "service"] | order(displayOrder asc) {
-      _id,
-      title,
-      "slug": slug.current,
-      eyebrow,
-      shortBlurb,
-      heroDescription,
-      priceType,
-      priceLabel,
-      included,
-      forWho,
-      mainImage,
-      photoLabel,
-      displayOrder
-    }
-  `)
+  try {
+    const result = await client.fetch(`
+      *[_type == "service"] | order(displayOrder asc) {
+        _id,
+        title,
+        "slug": slug.current,
+        eyebrow,
+        shortBlurb,
+        heroDescription,
+        priceType,
+        priceLabel,
+        included,
+        forWho,
+        faqs,
+        mainImage,
+        photoLabel,
+        displayOrder
+      }
+    `)
+    return result?.length ? result : SERVICES
+  } catch {
+    return SERVICES
+  }
 }
 
 export async function getService(slug: string): Promise<Service | null> {
-  return client.fetch(`
-    *[_type == "service" && slug.current == $slug][0] {
-      _id,
-      title,
-      "slug": slug.current,
-      eyebrow,
-      shortBlurb,
-      heroDescription,
-      priceType,
-      priceLabel,
-      included,
-      forWho,
-      mainImage,
-      photoLabel,
-      displayOrder
-    }
-  `, { slug })
+  try {
+    const result = await client.fetch(`
+      *[_type == "service" && slug.current == $slug][0] {
+        _id,
+        title,
+        "slug": slug.current,
+        eyebrow,
+        shortBlurb,
+        heroDescription,
+        priceType,
+        priceLabel,
+        included,
+        forWho,
+        faqs,
+        mainImage,
+        photoLabel,
+        displayOrder
+      }
+    `, { slug })
+    return result ?? SERVICES.find(s => s.slug === slug) ?? null
+  } catch {
+    return SERVICES.find(s => s.slug === slug) ?? null
+  }
 }
 
 export async function getTestimonials(): Promise<Testimonial[]> {
-  return client.fetch(`
-    *[_type == "testimonial"] | order(displayOrder asc) {
-      _id,
-      quote,
-      name,
-      place,
-      displayOrder
-    }
-  `)
+  try {
+    const result = await client.fetch(`
+      *[_type == "testimonial"] | order(displayOrder asc) {
+        _id,
+        quote,
+        name,
+        place,
+        displayOrder
+      }
+    `)
+    return result?.length ? result : TESTIMONIALS
+  } catch {
+    return TESTIMONIALS
+  }
 }
 
 export async function getHomePage(): Promise<HomePage> {
-  const result = await client.fetch(`
-    *[_type == "homePage"][0] {
-      heroImage,
-      heroBadge,
-      heroHeading,
-      heroSubheading,
-      trustItems,
-      howSteps,
-      whyHeading,
-      whyPoints,
-      ctaHeading,
-      ctaBody
-    }
-  `)
-  return result ?? HOME_PAGE_FALLBACK
+  try {
+    const result = await client.fetch(`
+      *[_type == "homePage"][0] {
+        heroImage,
+        heroBadge,
+        heroHeading,
+        heroSubheading,
+        trustItems,
+        howSteps,
+        whyHeading,
+        whyPoints,
+        ctaHeading,
+        ctaBody,
+        googleReviewsUrl,
+        gallery[] {
+          image,
+          altText
+        }
+      }
+    `)
+    return result ?? HOME_PAGE_FALLBACK
+  } catch {
+    return HOME_PAGE_FALLBACK
+  }
 }
 
 export async function getSiteSettings(): Promise<SiteSettings> {
-  const result = await client.fetch(`
-    *[_type == "siteSettings"][0] {
-      phone,
-      email,
-      instagramUrl,
-      facebookUrl,
-      footerBlurb,
-      areas,
-      areasIntro
-    }
-  `)
-  return result ?? SITE_SETTINGS
+  try {
+    const result = await client.fetch(`
+      *[_type == "siteSettings"][0] {
+        phone,
+        email,
+        instagramUrl,
+        facebookUrl,
+        footerBlurb,
+        areas,
+        areasIntro,
+        statsStrip {
+          show,
+          stats[] {
+            value,
+            label
+          }
+        }
+      }
+    `)
+    return result ?? SITE_SETTINGS
+  } catch {
+    return SITE_SETTINGS
+  }
+}
+
+export async function getPromoBanner(): Promise<PromoBanner | null> {
+  try {
+    const result = await client.fetch(`
+      *[_type == "promoBanner"][0] {
+        enabled,
+        text,
+        linkLabel,
+        linkUrl
+      }
+    `)
+    return result ?? null
+  } catch {
+    return null
+  }
 }

@@ -1,0 +1,73 @@
+.section {
+  margin-top: clamp(36px, 5vw, 56px);
+}
+
+.heading {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-weight: 600;
+  font-size: clamp(24px, 3.5vw, 34px);
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.item {
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+
+.item:last-child {
+  border-bottom: none;
+}
+
+.itemOpen {
+  background: var(--surface-alt);
+}
+
+.trigger {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 18px 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.trigger:hover {
+  background: var(--surface-alt);
+}
+
+.question {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+.chevron {
+  flex: none;
+  color: var(--secondary);
+  transition: transform 0.2s;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.answer {
+  padding: 0 22px 18px;
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--text-soft);
+}

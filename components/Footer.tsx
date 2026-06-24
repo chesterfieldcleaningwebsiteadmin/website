@@ -106,6 +106,8 @@ export default async function Footer() {
       <div className={styles.bar}>
         <span>© 2026 Chesterfield Cleaning Fairies. Fully insured · DBS-checked.</span>
         <span className={styles.barRight}>
+          <Link href="/privacy" className={styles.policyLink}>Privacy</Link>
+          <Link href="/cookies" className={styles.policyLink}>Cookies</Link>
           <CookieSettingsButton />
           <span>Made with a little magic ✦</span>
         </span>

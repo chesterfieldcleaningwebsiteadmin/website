@@ -1,3 +1,8 @@
+export interface Faq {
+  question: string;
+  answer: string;
+}
+
 export interface Service {
   _id?: string;
   title: string;
@@ -9,6 +14,7 @@ export interface Service {
   heroDescription: string;
   included: string[];
   forWho: { title: string; body: string }[];
+  faqs?: Faq[];
   mainImage?: SanityImage;
   photoLabel: string;
   displayOrder: number;
@@ -29,6 +35,11 @@ export interface SanityImage {
   crop?: { top: number; bottom: number; left: number; right: number }
 }
 
+export interface GalleryItem {
+  image: SanityImage;
+  altText: string;
+}
+
 export interface HomePage {
   heroImage?: SanityImage;
   heroBadge: string;
@@ -40,6 +51,13 @@ export interface HomePage {
   whyPoints: { title: string; body: string }[];
   ctaHeading: string;
   ctaBody: string;
+  googleReviewsUrl?: string;
+  gallery?: GalleryItem[];
+}
+
+export interface StatItem {
+  value: string;
+  label: string;
 }
 
 export interface SiteSettings {
@@ -50,4 +68,15 @@ export interface SiteSettings {
   footerBlurb: string;
   areas: string[];
   areasIntro: string;
+  statsStrip?: {
+    show: boolean;
+    stats: StatItem[];
+  };
+}
+
+export interface PromoBanner {
+  enabled: boolean;
+  text: string;
+  linkLabel?: string;
+  linkUrl?: string;
 }

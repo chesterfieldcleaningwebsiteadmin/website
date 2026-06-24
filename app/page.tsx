@@ -1,11 +1,13 @@
 import Link from "next/link";
 import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/TrustStrip";
+import StatsStrip from "@/components/StatsStrip";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Areas from "@/components/home/Areas";
 import Testimonials from "@/components/home/Testimonials";
+import Gallery from "@/components/home/Gallery";
 import CtaBand from "@/components/CtaBand";
 import { getServices, getTestimonials, getSiteSettings, getHomePage } from "@/lib/sanity";
 
@@ -19,6 +21,8 @@ export default async function HomePage() {
     getHomePage(),
   ]);
 
+  const statsItems = settings.statsStrip?.show !== false ? (settings.statsStrip?.stats ?? []) : [];
+
   return (
     <>
       <main>
@@ -28,12 +32,14 @@ export default async function HomePage() {
           subheading={home.heroSubheading}
           heroImage={home.heroImage}
         />
+        {statsItems.length > 0 && <StatsStrip stats={statsItems} />}
         <TrustStrip items={home.trustItems} />
         <ServicesGrid services={services} />
         <HowItWorks steps={home.howSteps} />
         <WhyChooseUs heading={home.whyHeading} points={home.whyPoints} />
         <Areas areas={settings.areas} areasIntro={settings.areasIntro} />
-        <Testimonials testimonials={testimonials} />
+        <Testimonials testimonials={testimonials} googleReviewsUrl={home.googleReviewsUrl} />
+        {home.gallery?.length ? <Gallery items={home.gallery} /> : null}
         <CtaBand heading={home.ctaHeading} body={home.ctaBody} />
       </main>
 

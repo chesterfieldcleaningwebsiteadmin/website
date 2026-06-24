@@ -1,4 +1,27 @@
-import type { Service, Testimonial, SiteSettings } from "./types";
+import type { Service, Testimonial, SiteSettings, Faq } from "./types";
+
+const COMMON_FAQS: Faq[] = [
+  {
+    question: "Do you bring your own cleaning products and equipment?",
+    answer: "Yes — we bring everything we need to get the job done. If you'd prefer us to use specific products (for example, fragrance-free or eco-friendly alternatives), just let us know.",
+  },
+  {
+    question: "Are you fully insured and DBS-checked?",
+    answer: "Absolutely. We are fully insured and every member of our team holds a current DBS check, so you can have complete peace of mind.",
+  },
+  {
+    question: "How do I pay?",
+    answer: "We accept bank transfer and most major payment methods. We'll confirm the payment details when we arrange your booking.",
+  },
+  {
+    question: "Do I need to be at home when you clean?",
+    answer: "Not at all — many of our clients give us a key or provide an access code. We're fully insured and DBS-checked, so you can trust us with your space.",
+  },
+  {
+    question: "What if I'm not happy with the result?",
+    answer: "We always aim to get it right first time, but if something isn't up to standard, just let us know and we'll come back to put it right.",
+  },
+];
 
 export const SITE_SETTINGS: SiteSettings = {
   phone: "07369 255360",
@@ -65,6 +88,17 @@ export const SERVICES: Service[] = [
     ],
     photoLabel: "sparkling-clean living room",
     displayOrder: 1,
+    faqs: [
+      ...COMMON_FAQS,
+      {
+        question: "Will I get the same cleaner each visit?",
+        answer: "Where possible, yes. We know how important familiarity and trust are, and we'll always aim to send someone you know.",
+      },
+      {
+        question: "How do I set up a regular clean?",
+        answer: "Just get in touch for a free quote. We'll agree a schedule that suits you — weekly, fortnightly or whatever works best.",
+      },
+    ],
   },
   {
     title: "One-off & deep cleans",
@@ -102,6 +136,17 @@ export const SERVICES: Service[] = [
     ],
     photoLabel: "sparkling-clean kitchen after deep clean",
     displayOrder: 2,
+    faqs: [
+      ...COMMON_FAQS,
+      {
+        question: "How long does a deep clean take?",
+        answer: "It depends on the size of your home and how long it's been since the last thorough clean. A typical 3-bedroom house takes between 4–6 hours. We'll give you a more accurate estimate when you enquire.",
+      },
+      {
+        question: "Can I book a one-off clean without committing to a regular service?",
+        answer: "Absolutely — we're happy to do a one-off clean with no obligation to continue. Many clients start with a deep clean and then switch to a regular schedule.",
+      },
+    ],
   },
   {
     title: "End-of-tenancy cleaning",
@@ -141,6 +186,17 @@ export const SERVICES: Service[] = [
     ],
     photoLabel: "spotless empty rental property",
     displayOrder: 3,
+    faqs: [
+      ...COMMON_FAQS,
+      {
+        question: "Will the clean guarantee I get my deposit back?",
+        answer: "We clean to the highest standard to give you the best possible chance. While we can't guarantee a landlord's decision, our thorough approach speaks for itself — many of our clients have their full deposit returned.",
+      },
+      {
+        question: "Do you work with landlords and letting agents directly?",
+        answer: "Yes — we're happy to liaise directly with landlords or agents. Just let us know the access arrangements and any inventory requirements.",
+      },
+    ],
   },
   {
     title: "Commercial & office cleaning",
@@ -180,6 +236,17 @@ export const SERVICES: Service[] = [
     ],
     photoLabel: "clean modern office space",
     displayOrder: 4,
+    faqs: [
+      ...COMMON_FAQS,
+      {
+        question: "Can you clean outside of business hours?",
+        answer: "Yes — we can schedule cleans early morning, evenings or weekends to avoid disrupting your team or clients.",
+      },
+      {
+        question: "Do you provide a cleaning schedule or checklist?",
+        answer: "Yes — we create a bespoke checklist tailored to your business. You'll always know exactly what's been done on every visit.",
+      },
+    ],
   },
   {
     title: "Airbnb & holiday-let changeovers",
@@ -219,6 +286,17 @@ export const SERVICES: Service[] = [
     ],
     photoLabel: "immaculate holiday cottage bedroom",
     displayOrder: 5,
+    faqs: [
+      ...COMMON_FAQS,
+      {
+        question: "Can you handle key collection and handover between guests?",
+        answer: "Yes — we can arrange key collection and handover to make the changeover completely hands-off for you.",
+      },
+      {
+        question: "What happens if you find damage during the changeover?",
+        answer: "We'll photograph it and let you know straight away, so you can act before the next guest checks in.",
+      },
+    ],
   },
 ];
 

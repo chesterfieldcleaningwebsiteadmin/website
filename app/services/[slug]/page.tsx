@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import TrustStrip from "@/components/TrustStrip";
 import CtaBand from "@/components/CtaBand";
+import Faq from "@/components/Faq";
 import Image from "next/image";
 import { getServices, getService, getHomePage } from "@/lib/sanity";
 import { urlFor } from "@/lib/sanityImage";
@@ -26,6 +27,20 @@ export async function generateMetadata({
   return {
     title: `${svc.title} | Chesterfield Cleaning Fairies`,
     description: svc.heroDescription,
+    other: svc.faqs?.length ? {
+      "application/ld+json": JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: svc.faqs.map(faq => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
+      }),
+    } : undefined,
   };
 }
 
@@ -155,6 +170,8 @@ export default async function ServicePage({
                 </div>
               ))}
             </div>
+
+            {svc.faqs?.length ? <Faq faqs={svc.faqs} /> : null}
           </div>
 
           {/* Pricing sidebar */}

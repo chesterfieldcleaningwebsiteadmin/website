@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
+import { getSiteSettings } from "@/lib/sanity";
 import styles from "./contact.module.css";
 
 export const metadata: Metadata = {
@@ -9,7 +10,9 @@ export const metadata: Metadata = {
     "Request a free, no-obligation cleaning quote. We cover Chesterfield and surrounding Derbyshire villages and usually reply the same day.",
 };
 
-export default function ContactPage() {
+export default async function ContactPage() {
+  const settings = await getSiteSettings();
+
   return (
     <main>
       {/* Hero */}
@@ -49,7 +52,10 @@ export default function ContactPage() {
             {/* Talk directly */}
             <div className={styles.sideCard}>
               <h3 className={styles.sideHeading}>Talk to us directly</h3>
-              <a href="tel:+447369255360" className={styles.contactRow}>
+              <a
+                href={`tel:+44${settings.phone.replace(/^0/, "").replace(/\s/g, "")}`}
+                className={styles.contactRow}
+              >
                 <span className={styles.contactIcon} style={{ background: "var(--secondary-soft)", color: "var(--secondary)" }}>
                   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                     <path d="M6.5 3h3l1.5 5-2 1.5a12 12 0 0 0 5 5l1.5-2 5 1.5v3c0 1-1 2-2 2A16 16 0 0 1 4.5 5c0-1 1-2 2-2Z" fill="currentColor" />
@@ -57,13 +63,10 @@ export default function ContactPage() {
                 </span>
                 <span>
                   <span className={styles.contactMeta}>Call or text</span>
-                  <span className={styles.contactValue}>07369 255360</span>
+                  <span className={styles.contactValue}>{settings.phone}</span>
                 </span>
               </a>
-              <a
-                href="mailto:Chesterfieldcleaningfairies@gmail.com"
-                className={styles.contactRow}
-              >
+              <a href={`mailto:${settings.email}`} className={styles.contactRow}>
                 <span className={styles.contactIcon} style={{ background: "var(--primary-soft)", color: "var(--primary)" }}>
                   <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="1.8">
                     <rect x="3" y="5" width="18" height="14" rx="2.5" />
@@ -72,9 +75,7 @@ export default function ContactPage() {
                 </span>
                 <span className={styles.contactEmailWrap}>
                   <span className={styles.contactMeta}>Email</span>
-                  <span className={styles.contactValue}>
-                    Chesterfieldcleaningfairies@gmail.com
-                  </span>
+                  <span className={styles.contactValue}>{settings.email}</span>
                 </span>
               </a>
             </div>
@@ -84,7 +85,7 @@ export default function ContactPage() {
               <h3 className={styles.sideHeading}>Follow the sparkle</h3>
               <div className={styles.socials}>
                 <a
-                  href="https://www.instagram.com/chesterfieldcleaningfairies/"
+                  href={settings.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}
@@ -97,7 +98,7 @@ export default function ContactPage() {
                   Instagram
                 </a>
                 <a
-                  href="https://www.facebook.com/people/Chesterfield-cleaning-fairies/61556004656005/"
+                  href={settings.facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
                   className={styles.socialBtn}

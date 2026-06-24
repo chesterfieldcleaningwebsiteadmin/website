@@ -142,6 +142,15 @@
   animation: ccfFloat 7s ease-in-out infinite;
 }
 
+.photoReal {
+  aspect-ratio: 4 / 5;
+  width: 100%;
+  border-radius: 26px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px -28px rgba(40, 20, 60, 0.5);
+  position: relative;
+}
+
 .photoPlaceholder {
   aspect-ratio: 4 / 5;
   width: 100%;

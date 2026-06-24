@@ -26,6 +26,7 @@ export default async function HomePage() {
           badge={home.heroBadge}
           heading={home.heroHeading}
           subheading={home.heroSubheading}
+          heroImage={home.heroImage}
         />
         <TrustStrip items={home.trustItems} />
         <ServicesGrid services={services} />

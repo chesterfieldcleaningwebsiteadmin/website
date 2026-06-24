@@ -46,6 +46,7 @@ export async function getServices(): Promise<Service[]> {
       priceLabel,
       included,
       forWho,
+      mainImage,
       photoLabel,
       displayOrder
     }
@@ -65,6 +66,7 @@ export async function getService(slug: string): Promise<Service | null> {
       priceLabel,
       included,
       forWho,
+      mainImage,
       photoLabel,
       displayOrder
     }
@@ -86,6 +88,7 @@ export async function getTestimonials(): Promise<Testimonial[]> {
 export async function getHomePage(): Promise<HomePage> {
   const result = await client.fetch(`
     *[_type == "homePage"][0] {
+      heroImage,
       heroBadge,
       heroHeading,
       heroSubheading,

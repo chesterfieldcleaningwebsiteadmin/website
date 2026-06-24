@@ -3,7 +3,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import TrustStrip from "@/components/TrustStrip";
 import CtaBand from "@/components/CtaBand";
+import Image from "next/image";
 import { getServices, getService, getHomePage } from "@/lib/sanity";
+import { urlFor } from "@/lib/sanityImage";
 import styles from "./service.module.css";
 
 export const revalidate = 60;
@@ -93,9 +95,20 @@ export default async function ServicePage({
               </div>
             </div>
             <div className={styles.heroPhoto}>
-              <span className={styles.photoLabel}>
-                [ photo: {svc.photoLabel} ]
-              </span>
+              {svc.mainImage ? (
+                <Image
+                  src={urlFor(svc.mainImage).width(600).height(480).url()}
+                  alt={svc.title}
+                  fill
+                  sizes="(max-width: 900px) 0px, 40vw"
+                  style={{ objectFit: "cover" }}
+                  priority
+                />
+              ) : (
+                <span className={styles.photoLabel}>
+                  [ photo: {svc.photoLabel} ]
+                </span>
+              )}
             </div>
           </div>
         </div>

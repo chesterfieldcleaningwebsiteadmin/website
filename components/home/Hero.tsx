@@ -1,13 +1,17 @@
 import Link from "next/link";
+import Image from "next/image";
 import styles from "./Hero.module.css";
+import { urlFor } from "@/lib/sanityImage";
+import type { SanityImage } from "@/lib/types";
 
 interface Props {
   badge: string;
   heading: string;
   subheading: string;
+  heroImage?: SanityImage;
 }
 
-export default function Hero({ badge, heading, subheading }: Props) {
+export default function Hero({ badge, heading, subheading, heroImage }: Props) {
   return (
     <section className={styles.hero}>
       {/* decorative sparkles */}
@@ -98,13 +102,26 @@ export default function Hero({ badge, heading, subheading }: Props) {
         {/* Right: photo placeholder with floating badge */}
         <div className={styles.photoWrap}>
           <div className={styles.photoInner}>
-            <div className={styles.photoPlaceholder}>
-              <span className={styles.photoLabel}>
-                [ bright photo:
-                <br />
-                sparkling-clean kitchen ]
-              </span>
-            </div>
+            {heroImage ? (
+              <div className={styles.photoReal}>
+                <Image
+                  src={urlFor(heroImage).width(700).height(875).url()}
+                  alt="Chesterfield Cleaning Fairies — sparkling clean home"
+                  fill
+                  sizes="(max-width: 900px) 0px, 45vw"
+                  style={{ objectFit: "cover" }}
+                  priority
+                />
+              </div>
+            ) : (
+              <div className={styles.photoPlaceholder}>
+                <span className={styles.photoLabel}>
+                  [ bright photo:
+                  <br />
+                  sparkling-clean kitchen ]
+                </span>
+              </div>
+            )}
             <div className={styles.ratingBadge}>
               <span className={styles.stars} aria-label="5 stars">
                 {[...Array(5)].map((_, i) => (

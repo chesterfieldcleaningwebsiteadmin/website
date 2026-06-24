@@ -18,6 +18,30 @@ const client = createClient({
 
 const docs = [
   {
+    _id: 'home-page',
+    _type: 'homePage',
+    heroBadge: 'Local · family-run · fully insured',
+    heroHeading: 'A little sparkle,\na spotless home.',
+    heroSubheading: "Trusted, insured cleaning for homes and businesses across Chesterfield & Derbyshire — delivered by a friendly, local team you'll be happy to give a key to.",
+    trustItems: ['Fully insured', 'DBS-checked', 'Local & family-run', '5-star rated'],
+    howSteps: [
+      { _key: 'step1', title: 'Get in touch', body: "Call, message or fill in our quick form — we'll get straight back to you, no pressure." },
+      { _key: 'step2', title: 'We tailor a quote', body: 'We listen to exactly what you need and put together a fair, no-obligation price.' },
+      { _key: 'step3', title: 'We bring the sparkle', body: 'Our insured, DBS-checked team arrives on time and leaves everything gleaming.' },
+    ],
+    whyHeading: "The kind of company you'd hand a key to",
+    whyPoints: [
+      { _key: 'wp1', title: 'Fully insured & DBS-checked', body: 'Complete peace of mind on every single visit.' },
+      { _key: 'wp2', title: 'Local & family-run', body: 'Real people from Chesterfield who genuinely care about your home.' },
+      { _key: 'wp3', title: 'Trusted, vetted cleaners', body: 'The same friendly faces you\'ll get to know and rely on.' },
+      { _key: 'wp4', title: 'Eco-friendly on request', body: 'Gentle, effective products that are kind to your home and the planet.' },
+      { _key: 'wp5', title: 'Flexible scheduling', body: 'We work around your life — not the other way round.' },
+      { _key: 'wp6', title: 'Satisfaction guaranteed', body: "Not perfectly happy? Tell us and we'll put it right." },
+    ],
+    ctaHeading: 'Ready to come home to a sparkle?',
+    ctaBody: "Get a free, no-obligation quote today. We'll tailor a clean that fits your home, your business and your budget.",
+  },
+  {
     _id: 'site-settings',
     _type: 'siteSettings',
     businessName: 'Chesterfield Cleaning Fairies',

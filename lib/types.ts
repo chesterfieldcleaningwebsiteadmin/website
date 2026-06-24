@@ -9,6 +9,7 @@ export interface Service {
   heroDescription: string;
   included: string[];
   forWho: { title: string; body: string }[];
+  mainImage?: SanityImage;
   photoLabel: string;
   displayOrder: number;
 }
@@ -21,7 +22,15 @@ export interface Testimonial {
   displayOrder: number;
 }
 
+export interface SanityImage {
+  _type: 'image'
+  asset: { _type: 'reference'; _ref: string }
+  hotspot?: { x: number; y: number; height: number; width: number }
+  crop?: { top: number; bottom: number; left: number; right: number }
+}
+
 export interface HomePage {
+  heroImage?: SanityImage;
   heroBadge: string;
   heroHeading: string;
   heroSubheading: string;

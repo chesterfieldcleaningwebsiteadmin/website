@@ -6,6 +6,7 @@ export const homePage = defineType({
   type: "document",
   fields: [
     // Hero
+    defineField({ name: "heroImage", title: "Hero photo", type: "image", options: { hotspot: true } }),
     defineField({ name: "heroBadge", title: "Hero badge text", type: "string" }),
     defineField({ name: "heroHeading", title: "Hero heading (press Enter for line break)", type: "text", rows: 2 }),
     defineField({ name: "heroSubheading", title: "Hero subheading", type: "text", rows: 3 }),

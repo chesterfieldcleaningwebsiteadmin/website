@@ -37,6 +37,7 @@ export const service = defineType({
         },
       ],
     }),
+    defineField({ name: "mainImage", title: "Service photo", type: "image", options: { hotspot: true } }),
     defineField({ name: "photoLabel", title: "Photo label (placeholder)", type: "string" }),
     defineField({ name: "displayOrder", title: "Display order", type: "number" }),
   ],

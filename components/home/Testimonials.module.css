@@ -80,6 +80,40 @@
 .reviewsCta {
   margin-top: clamp(28px, 3vw, 40px);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.ratingBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  padding: 10px 22px;
+  box-shadow: 0 4px 14px -8px rgba(40, 20, 60, 0.2);
+}
+
+.ratingStars {
+  color: #fbbc04;
+  font-size: 18px;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.ratingScore {
+  font-weight: 800;
+  font-size: 17px;
+  color: var(--text);
+}
+
+.ratingCount {
+  font-size: 14px;
+  color: var(--text-soft);
+  font-weight: 600;
 }
 
 .reviewsLink {

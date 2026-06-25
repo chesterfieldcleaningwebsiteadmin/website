@@ -23,6 +23,24 @@ export const siteSettings = defineType({
       type: "array",
       of: [{ type: "string" }],
     }),
+    defineField({ name: "googleRating", title: "Google rating (e.g. 4.9)", type: "number", description: "Your current Google star rating" }),
+    defineField({ name: "googleReviewCount", title: "Number of Google reviews", type: "number", description: "Total review count shown on Google" }),
+    defineField({ name: "streetAddress", title: "Address / area", type: "string", description: "e.g. Chesterfield, Derbyshire, S40" }),
+    defineField({ name: "openingHours", title: "Opening hours", type: "string", description: "e.g. Monday–Saturday, 8am–6pm" }),
+    defineField({
+      name: "instagramHighlights",
+      title: "Instagram highlights",
+      description: "Upload 4–6 recent work photos. Shown on the home page with a Follow Us link. Leave empty to hide the section.",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "image", type: "image", title: "Photo", options: { hotspot: true } },
+          { name: "caption", type: "string", title: "Caption (optional)" },
+        ],
+        preview: { select: { title: "caption", media: "image" } },
+      }],
+    }),
     defineField({
       name: "statsStrip",
       title: "Stats strip",

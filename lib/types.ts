@@ -108,6 +108,11 @@ export interface StatItem {
   label: string;
 }
 
+export interface InstagramHighlight {
+  image: SanityImage;
+  caption?: string;
+}
+
 export interface SiteSettings {
   phone: string;
   email: string;
@@ -116,6 +121,11 @@ export interface SiteSettings {
   footerBlurb: string;
   areas: string[];
   areasIntro: string;
+  googleRating?: number;
+  googleReviewCount?: number;
+  streetAddress?: string;
+  openingHours?: string;
+  instagramHighlights?: InstagramHighlight[];
   statsStrip?: {
     show: boolean;
     stats: StatItem[];

@@ -45,19 +45,33 @@ export const metadata: Metadata = {
     "application/ld+json": JSON.stringify({
       "@context": "https://schema.org",
       "@type": ["LocalBusiness", "HousekeepingBusiness"],
+      "@id": BASE_URL,
       name: "Chesterfield Cleaning Fairies",
+      url: BASE_URL,
       telephone: "+447369255360",
       email: "Chesterfieldcleaningfairies@gmail.com",
-      url: BASE_URL,
       description:
         "Local, insured cleaning for homes and businesses across Chesterfield & Derbyshire.",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Chesterfield",
+        addressRegion: "Derbyshire",
+        postalCode: "S40",
+        addressCountry: "GB",
+      },
+      // Update openingHours in siteSettings in Studio to keep in sync
+      openingHours: "Mo-Sa 08:00-18:00",
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "5",
+        ratingCount: "12",
+      },
       areaServed: [
         "Chesterfield", "Brampton", "Walton", "Hasland", "Brimington",
         "Old Whittington", "Newbold", "Wingerworth", "Dronfield",
         "Holymoorside", "Staveley", "Clay Cross", "Ashgate", "Calow",
       ],
       priceRange: "££",
-      "@id": BASE_URL,
     }),
   },
 };

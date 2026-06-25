@@ -24,23 +24,31 @@ export async function generateMetadata({
   const { slug } = await params;
   const svc = await getService(slug);
   if (!svc) return {};
+  const BASE_URL = "https://www.chesterfieldcleaningfairies.co.uk";
+  const schemas = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: BASE_URL },
+        { "@type": "ListItem", position: 2, name: "Services", item: `${BASE_URL}/#services` },
+        { "@type": "ListItem", position: 3, name: svc.title },
+      ],
+    },
+    ...(svc.faqs?.length ? [{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: svc.faqs.map(faq => ({
+        "@type": "Question",
+        name: faq.question,
+        acceptedAnswer: { "@type": "Answer", text: faq.answer },
+      })),
+    }] : []),
+  ];
   return {
     title: `${svc.title} | Chesterfield Cleaning Fairies`,
     description: svc.heroDescription,
-    other: svc.faqs?.length ? {
-      "application/ld+json": JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        mainEntity: svc.faqs.map(faq => ({
-          "@type": "Question",
-          name: faq.question,
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: faq.answer,
-          },
-        })),
-      }),
-    } : undefined,
+    other: { "application/ld+json": JSON.stringify(schemas) },
   };
 }
 

@@ -49,6 +49,10 @@ export const SITE_SETTINGS: SiteSettings = {
   ],
   areasIntro:
     "Proudly based in Chesterfield and covering the surrounding Derbyshire towns and villages. Not sure if we reach you? Just ask — we're always happy to help.",
+  googleRating: 5,
+  googleReviewCount: 12,
+  streetAddress: "Chesterfield, Derbyshire",
+  openingHours: "Monday–Saturday, 8am–6pm",
 };
 
 export const SERVICES: Service[] = [

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/TrustStrip";
@@ -8,10 +9,19 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Areas from "@/components/home/Areas";
 import Testimonials from "@/components/home/Testimonials";
 import Gallery from "@/components/home/Gallery";
+import InstagramHighlights from "@/components/home/InstagramHighlights";
 import CtaBand from "@/components/CtaBand";
 import { getServices, getTestimonials, getSiteSettings, getHomePage } from "@/lib/sanity";
 
 export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  return {
+    title: "Chesterfield Cleaning Fairies | Local, Insured Cleaning",
+    description:
+      "Trusted, insured cleaning for homes and businesses across Chesterfield & Derbyshire — delivered by a friendly, local team you'll be happy to give a key to.",
+  };
+}
 
 export default async function HomePage() {
   const [services, testimonials, settings, home] = await Promise.all([
@@ -38,8 +48,19 @@ export default async function HomePage() {
         <HowItWorks steps={home.howSteps} eyebrow={home.howEyebrow} heading={home.howHeading} />
         <WhyChooseUs heading={home.whyHeading} points={home.whyPoints} />
         <Areas areas={settings.areas} areasIntro={settings.areasIntro} />
-        <Testimonials testimonials={testimonials} googleReviewsUrl={home.googleReviewsUrl} eyebrow={home.testimonialsEyebrow} heading={home.testimonialsHeading} />
+        <Testimonials
+          testimonials={testimonials}
+          googleReviewsUrl={home.googleReviewsUrl}
+          googleRating={settings.googleRating}
+          googleReviewCount={settings.googleReviewCount}
+          eyebrow={home.testimonialsEyebrow}
+          heading={home.testimonialsHeading}
+        />
         {home.gallery?.length ? <Gallery items={home.gallery} /> : null}
+        <InstagramHighlights
+          highlights={settings.instagramHighlights ?? []}
+          instagramUrl={settings.instagramUrl}
+        />
         <CtaBand heading={home.ctaHeading} body={home.ctaBody} />
       </main>
 

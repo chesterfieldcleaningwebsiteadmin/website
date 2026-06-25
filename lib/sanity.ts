@@ -182,6 +182,11 @@ export async function getSiteSettings(): Promise<SiteSettings> {
         footerBlurb,
         areas,
         areasIntro,
+        googleRating,
+        googleReviewCount,
+        streetAddress,
+        openingHours,
+        instagramHighlights[]{ image, caption },
         statsStrip {
           show,
           stats[] {

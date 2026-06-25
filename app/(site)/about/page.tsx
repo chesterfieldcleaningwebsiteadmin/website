@@ -13,7 +13,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const about = await getAboutPage();
   return {
-    title: "About Us | Chesterfield Cleaning Fairies",
+    title: { absolute: "About Us | Chesterfield Cleaning Fairies" },
     description:
       about.metaDescription ??
       "Meet the local team behind Chesterfield Cleaning Fairies. Fully insured, DBS-checked and passionate about delivering a genuinely great clean across Chesterfield & Derbyshire.",

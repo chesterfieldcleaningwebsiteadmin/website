@@ -7,7 +7,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const page = await getCookiesPage();
   return {
-    title: "Cookie Policy | Chesterfield Cleaning Fairies",
+    title: { absolute: "Cookie Policy | Chesterfield Cleaning Fairies" },
     description:
       page.metaDescription ??
       "How Chesterfield Cleaning Fairies uses cookies and how to manage your preferences.",

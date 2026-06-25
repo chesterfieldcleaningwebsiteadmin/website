@@ -9,7 +9,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const contact = await getContactPage();
   return {
-    title: "Get a Free Quote | Chesterfield Cleaning Fairies",
+    title: { absolute: "Get a Free Quote | Chesterfield Cleaning Fairies" },
     description:
       contact.metaDescription ??
       "Request a free, no-obligation cleaning quote. We cover Chesterfield and surrounding Derbyshire villages and usually reply the same day.",

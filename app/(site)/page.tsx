@@ -17,7 +17,7 @@ export const revalidate = 60;
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: "Chesterfield Cleaning Fairies | Local, Insured Cleaning",
+    title: { absolute: "Chesterfield Cleaning Fairies | Local, Insured Cleaning" },
     description:
       "Trusted, insured cleaning for homes and businesses across Chesterfield & Derbyshire — delivered by a friendly, local team you'll be happy to give a key to.",
   };

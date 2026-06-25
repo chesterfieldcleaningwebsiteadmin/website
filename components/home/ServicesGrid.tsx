@@ -4,6 +4,9 @@ import styles from "./ServicesGrid.module.css";
 
 interface Props {
   services: Service[];
+  eyebrow?: string;
+  heading?: string;
+  sub?: string;
 }
 
 const TILE_COLOURS = [
@@ -12,17 +15,19 @@ const TILE_COLOURS = [
   { bg: "var(--gold-soft)", fg: "var(--gold-deep)" },
 ];
 
-export default function ServicesGrid({ services }: Props) {
+export default function ServicesGrid({
+  services,
+  eyebrow = "What we do",
+  heading = "Cleaning, tailored to you",
+  sub = "From a regular sparkle to a one-off deep clean, we look after homes and businesses alike — with the same care and attention every visit.",
+}: Props) {
   return (
     <section id="services" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.intro}>
-          <span className={styles.eyebrow}>What we do</span>
-          <h2 className={styles.heading}>Cleaning, tailored to you</h2>
-          <p className={styles.sub}>
-            From a regular sparkle to a one-off deep clean, we look after homes
-            and businesses alike — with the same care and attention every visit.
-          </p>
+          <span className={styles.eyebrow}>{eyebrow}</span>
+          <h2 className={styles.heading}>{heading}</h2>
+          <p className={styles.sub}>{sub}</p>
         </div>
         <div className={styles.grid}>
           {services.map((s, i) => (

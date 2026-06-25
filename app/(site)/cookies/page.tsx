@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
+import { getCookiesPage } from "@/lib/sanity";
 import styles from "../privacy/policy.module.css";
 
-export const metadata: Metadata = {
-  title: "Cookie Policy",
-  description: "How Chesterfield Cleaning Fairies uses cookies and how to manage your preferences.",
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getCookiesPage();
+  return {
+    title: "Cookie Policy | Chesterfield Cleaning Fairies",
+    description:
+      page.metaDescription ??
+      "How Chesterfield Cleaning Fairies uses cookies and how to manage your preferences.",
+  };
+}
 
 export default function CookiesPage() {
   return (

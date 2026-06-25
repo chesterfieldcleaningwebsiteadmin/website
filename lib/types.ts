@@ -52,14 +52,45 @@ export interface HomePage {
   heroHeading: string;
   heroSubheading: string;
   trustItems: string[];
+  servicesEyebrow?: string;
+  servicesHeading?: string;
+  servicesSub?: string;
+  howEyebrow?: string;
+  howHeading?: string;
   howSteps: { title: string; body: string }[];
   whyHeading: string;
   whyPoints: { title: string; body: string }[];
+  testimonialsEyebrow?: string;
+  testimonialsHeading?: string;
   ctaHeading: string;
   ctaBody: string;
   googleReviewsUrl?: string;
   gallery?: GalleryItem[];
   beforeAfter?: BeforeAfterItem[];
+}
+
+export interface ContactPage {
+  metaDescription?: string;
+  heroEyebrow: string;
+  heroHeading: string;
+  heroSub: string;
+  trustItems: string[];
+}
+
+export interface PricingPage {
+  metaDescription?: string;
+  heroEyebrow: string;
+  heroHeading: string;
+  heroSub: string;
+  footerNote: string;
+}
+
+export interface PrivacyPage {
+  metaDescription?: string;
+}
+
+export interface CookiesPage {
+  metaDescription?: string;
 }
 
 export interface AboutPage {
@@ -69,6 +100,7 @@ export interface AboutPage {
   storyBody: string;
   image?: SanityImage;
   valuesHeading: string;
+  metaDescription?: string;
 }
 
 export interface StatItem {

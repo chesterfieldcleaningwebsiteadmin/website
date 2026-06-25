@@ -5,6 +5,7 @@ export const aboutPage = defineType({
   title: "About Page",
   type: "document",
   fields: [
+    defineField({ name: "metaDescription", title: "SEO meta description", type: "text", rows: 2, description: "Shown in Google search results. Keep under 160 characters." }),
     defineField({ name: "heading", title: "Page heading", type: "string" }),
     defineField({ name: "subheading", title: "Page subheading", type: "text", rows: 2 }),
     defineField({ name: "storyHeading", title: "Story section heading", type: "string" }),

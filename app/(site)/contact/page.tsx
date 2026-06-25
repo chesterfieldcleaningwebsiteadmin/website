@@ -1,17 +1,26 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
-import { getSiteSettings } from "@/lib/sanity";
+import { getSiteSettings, getContactPage } from "@/lib/sanity";
 import styles from "./contact.module.css";
 
-export const metadata: Metadata = {
-  title: "Get a Free Quote | Chesterfield Cleaning Fairies",
-  description:
-    "Request a free, no-obligation cleaning quote. We cover Chesterfield and surrounding Derbyshire villages and usually reply the same day.",
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const contact = await getContactPage();
+  return {
+    title: "Get a Free Quote | Chesterfield Cleaning Fairies",
+    description:
+      contact.metaDescription ??
+      "Request a free, no-obligation cleaning quote. We cover Chesterfield and surrounding Derbyshire villages and usually reply the same day.",
+  };
+}
 
 export default async function ContactPage() {
-  const settings = await getSiteSettings();
+  const [settings, contact] = await Promise.all([
+    getSiteSettings(),
+    getContactPage(),
+  ]);
 
   return (
     <main>
@@ -30,12 +39,9 @@ export default async function ContactPage() {
           />
         </svg>
         <div className={styles.heroInner}>
-          <span className={styles.eyebrow}>Get in touch</span>
-          <h1 className={styles.heroHeading}>Let&rsquo;s bring the sparkle</h1>
-          <p className={styles.heroSub}>
-            Tell us a little about what you need and we&rsquo;ll get straight
-            back to you with a friendly, no-obligation quote.
-          </p>
+          <span className={styles.eyebrow}>{contact.heroEyebrow}</span>
+          <h1 className={styles.heroHeading}>{contact.heroHeading}</h1>
+          <p className={styles.heroSub}>{contact.heroSub}</p>
         </div>
       </section>
 
@@ -113,11 +119,7 @@ export default async function ContactPage() {
 
             {/* Trust */}
             <div className={styles.trustCard}>
-              {[
-                "Fully insured & DBS-checked",
-                "Covering Chesterfield & Derbyshire",
-                "Same-day replies, Mon–Sat",
-              ].map((t) => (
+              {contact.trustItems.map((t) => (
                 <span key={t} className={styles.trustItem}>
                   <span className={styles.trustTick} aria-hidden="true">
                     <svg viewBox="0 0 20 20" width="12" height="12">

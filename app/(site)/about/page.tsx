@@ -10,11 +10,15 @@ import styles from "./about.module.css";
 
 export const revalidate = 60;
 
-export const metadata: Metadata = {
-  title: "About Us | Chesterfield Cleaning Fairies",
-  description:
-    "Meet the local, family-run team behind Chesterfield Cleaning Fairies. Fully insured, DBS-checked and passionate about delivering a genuinely great clean across Chesterfield & Derbyshire.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const about = await getAboutPage();
+  return {
+    title: "About Us | Chesterfield Cleaning Fairies",
+    description:
+      about.metaDescription ??
+      "Meet the local team behind Chesterfield Cleaning Fairies. Fully insured, DBS-checked and passionate about delivering a genuinely great clean across Chesterfield & Derbyshire.",
+  };
+}
 
 export default async function AboutPage() {
   const [about, home] = await Promise.all([getAboutPage(), getHomePage()]);

@@ -4,17 +4,17 @@ import styles from "./Testimonials.module.css";
 interface Props {
   testimonials: Testimonial[];
   googleReviewsUrl?: string;
+  eyebrow?: string;
+  heading?: string;
 }
 
-export default function Testimonials({ testimonials, googleReviewsUrl }: Props) {
+export default function Testimonials({ testimonials, googleReviewsUrl, eyebrow = "Kind words ♥", heading = "Loved by local homes & businesses" }: Props) {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.intro}>
-          <span className={styles.eyebrow}>Kind words</span>
-          <h2 className={styles.heading}>
-            Loved by local homes &amp; businesses
-          </h2>
+          <span className={styles.eyebrow}>{eyebrow}</span>
+          <h2 className={styles.heading}>{heading}</h2>
         </div>
         <div className={styles.grid}>
           {testimonials.map((tm, i) => (

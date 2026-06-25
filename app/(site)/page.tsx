@@ -8,7 +8,6 @@ import WhyChooseUs from "@/components/home/WhyChooseUs";
 import Areas from "@/components/home/Areas";
 import Testimonials from "@/components/home/Testimonials";
 import Gallery from "@/components/home/Gallery";
-import BeforeAfterGallery from "@/components/home/BeforeAfterGallery";
 import CtaBand from "@/components/CtaBand";
 import { getServices, getTestimonials, getSiteSettings, getHomePage } from "@/lib/sanity";
 
@@ -35,13 +34,12 @@ export default async function HomePage() {
         />
         {statsItems.length > 0 && <StatsStrip stats={statsItems} />}
         <TrustStrip items={home.trustItems} />
-        <ServicesGrid services={services} />
-        <HowItWorks steps={home.howSteps} />
+        <ServicesGrid services={services} eyebrow={home.servicesEyebrow} heading={home.servicesHeading} sub={home.servicesSub} />
+        <HowItWorks steps={home.howSteps} eyebrow={home.howEyebrow} heading={home.howHeading} />
         <WhyChooseUs heading={home.whyHeading} points={home.whyPoints} />
         <Areas areas={settings.areas} areasIntro={settings.areasIntro} />
-        <Testimonials testimonials={testimonials} googleReviewsUrl={home.googleReviewsUrl} />
+        <Testimonials testimonials={testimonials} googleReviewsUrl={home.googleReviewsUrl} eyebrow={home.testimonialsEyebrow} heading={home.testimonialsHeading} />
         {home.gallery?.length ? <Gallery items={home.gallery} /> : null}
-        <BeforeAfterGallery items={home.beforeAfter ?? []} />
         <CtaBand heading={home.ctaHeading} body={home.ctaBody} />
       </main>
 

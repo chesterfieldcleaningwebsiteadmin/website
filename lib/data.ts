@@ -1,4 +1,4 @@
-import type { Service, Testimonial, SiteSettings, AboutPage, Faq } from "./types";
+import type { Service, Testimonial, SiteSettings, AboutPage, ContactPage, PricingPage, PrivacyPage, CookiesPage, Faq } from "./types";
 
 const COMMON_FAQS: Faq[] = [
   {
@@ -30,7 +30,7 @@ export const SITE_SETTINGS: SiteSettings = {
   facebookUrl:
     "https://www.facebook.com/people/Chesterfield-cleaning-fairies/61556004656005/",
   footerBlurb:
-    "A local, family-run cleaning team bringing a little sparkle to homes and businesses across Chesterfield & Derbyshire.",
+    "A local cleaning team bringing a little sparkle to homes and businesses across Chesterfield & Derbyshire. Cleaning with care, fairies everywhere.",
   areas: [
     "Chesterfield",
     "Brampton",
@@ -301,13 +301,41 @@ export const SERVICES: Service[] = [
 ];
 
 export const ABOUT_PAGE: AboutPage = {
+  metaDescription:
+    "Meet the local team behind Chesterfield Cleaning Fairies. Fully insured, DBS-checked and passionate about delivering a genuinely great clean across Chesterfield & Derbyshire.",
   heading: "Local, friendly, and genuinely passionate about clean",
   subheading:
-    "We're a family-run cleaning team based right here in Chesterfield — and we treat every home and business as if it were our own.",
+    "We're a local cleaning team based right here in Chesterfield — and we treat every home and business as if it were our own.",
   storyHeading: "A little bit about us",
   storyBody:
-    "Chesterfield Cleaning Fairies was born from a simple belief: cleaning should be one less thing you worry about. We're a local, family-run team who care deeply about the quality of our work and the trust our clients place in us.\n\nEvery member of our team is DBS-checked, fully insured, and trained to our high standards. We bring everything we need — so you don't have to lift a finger. Whether it's your home, your rental property, or your business premises, we'll leave it gleaming.\n\nWe cover Chesterfield and the surrounding Derbyshire towns and villages, and we're proud to be a team that clients genuinely trust — many give us a key and don't think twice about it. That's a responsibility we take seriously every single day.",
+    "Chesterfield Cleaning Fairies was born from a simple belief: cleaning should be one less thing you worry about. We're a local team who care deeply about the quality of our work and the trust our clients place in us.\n\nEvery member of our team is DBS-checked, fully insured, and trained to our high standards. We bring everything we need — so you don't have to lift a finger. Whether it's your home, your rental property, or your business premises, we'll leave it gleaming.\n\nWe cover Chesterfield and the surrounding Derbyshire towns and villages, and we're proud to be a team that clients genuinely trust — many give us a key and don't think twice about it. That's a responsibility we take seriously every single day.",
   valuesHeading: "What makes us different",
+};
+
+export const CONTACT_PAGE: ContactPage = {
+  heroEyebrow: "Get in touch",
+  heroHeading: "Let's bring the sparkle",
+  heroSub: "Tell us a little about what you need and we'll get straight back to you with a friendly, no-obligation quote.",
+  trustItems: [
+    "Fully insured & DBS-checked",
+    "Covering Chesterfield & Derbyshire",
+    "Same-day replies, Mon–Sat",
+  ],
+};
+
+export const PRICING_PAGE: PricingPage = {
+  heroEyebrow: "Transparent pricing",
+  heroHeading: "Simple, honest pricing",
+  heroSub: "No hidden charges — just clear starting prices and a free, tailored quote for your exact needs.",
+  footerNote: "All prices are starting prices. Final cost depends on property size, condition and frequency. Contact us for a free, tailored quote — we usually reply the same day.",
+};
+
+export const PRIVACY_PAGE: PrivacyPage = {
+  metaDescription: "How Chesterfield Cleaning Fairies collects, uses and protects your personal data.",
+};
+
+export const COOKIES_PAGE: CookiesPage = {
+  metaDescription: "How Chesterfield Cleaning Fairies uses cookies and how to manage your preferences.",
 };
 
 export const TESTIMONIALS: Testimonial[] = [

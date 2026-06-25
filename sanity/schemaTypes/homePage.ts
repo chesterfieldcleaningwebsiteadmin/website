@@ -19,7 +19,14 @@ export const homePage = defineType({
       of: [{ type: "string" }],
     }),
 
+    // Services section labels
+    defineField({ name: "servicesEyebrow", title: "Services section eyebrow", type: "string" }),
+    defineField({ name: "servicesHeading", title: "Services section heading", type: "string" }),
+    defineField({ name: "servicesSub", title: "Services section sub-heading", type: "text", rows: 2 }),
+
     // How it works
+    defineField({ name: "howEyebrow", title: "How it works — eyebrow text", type: "string" }),
+    defineField({ name: "howHeading", title: "How it works — section heading", type: "string" }),
     defineField({
       name: "howSteps",
       title: "How it works — steps",
@@ -55,6 +62,8 @@ export const homePage = defineType({
     defineField({ name: "ctaBody", title: "CTA band body text", type: "text", rows: 2 }),
 
     // Testimonials
+    defineField({ name: "testimonialsEyebrow", title: "Testimonials — eyebrow text", type: "string" }),
+    defineField({ name: "testimonialsHeading", title: "Testimonials — section heading", type: "string" }),
     defineField({
       name: "googleReviewsUrl",
       title: "Google Reviews URL",

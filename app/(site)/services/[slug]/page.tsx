@@ -120,9 +120,13 @@ export default async function ServicePage({
                   priority
                 />
               ) : (
-                <span className={styles.photoLabel}>
-                  [ photo: {svc.photoLabel} ]
-                </span>
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Chesterfield Cleaning Fairies"
+                  width={220}
+                  height={220}
+                  style={{ objectFit: "contain" }}
+                />
               )}
             </div>
           </div>

@@ -3,9 +3,9 @@
   --surface: #fffdf8;
   --surface-alt: #f4ead6;
   --header-bg: rgba(255, 253, 248, 0.85);
-  --primary: #4c3656;
-  --primary-deep: #382742;
-  --primary-soft: #ede6f0;
+  --primary: #1a2e4a;
+  --primary-deep: #0f1c2e;
+  --primary-soft: #e4ebf5;
   --secondary: #a87e1e;
   --secondary-soft: #f4e8cc;
   --gold: #a87e1e;
@@ -17,7 +17,7 @@
   --on-primary: #ffffff;
   --ink: #171022;
   --hero-grad: linear-gradient(180deg, #f6ead3 0%, #fbf6ec 62%);
-  --band-grad: linear-gradient(135deg, #382742 0%, #4c3656 50%, #a87e1e 140%);
+  --band-grad: linear-gradient(135deg, #0f1c2e 0%, #1a2e4a 50%, #a87e1e 140%);
 }
 
 *,
@@ -77,6 +77,13 @@ button {
   50% {
     transform: translateY(-10px);
   }
+}
+
+@keyframes ccfDrift {
+  0%   { transform: translateY(0)      rotate(0deg);   opacity: 0; }
+  15%  { opacity: 0.5; }
+  85%  { opacity: 0.5; }
+  100% { transform: translateY(-160px) rotate(360deg); opacity: 0; }
 }
 
 /* ── Mobile floating quote button (home page only) ── */

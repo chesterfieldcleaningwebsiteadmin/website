@@ -116,7 +116,7 @@ export default async function Footer() {
       </div>
 
       <div className={styles.bar}>
-        <span>© 2026 Chesterfield Cleaning Fairies. Fully insured · DBS-checked.</span>
+        <span>© 2026 Chesterfield Cleaning Fairies · Est. 2025 · Fully insured · DBS-checked ♥</span>
         <span className={styles.barRight}>
           <Link href="/privacy" className={styles.policyLink}>Privacy</Link>
           <Link href="/cookies" className={styles.policyLink}>Cookies</Link>

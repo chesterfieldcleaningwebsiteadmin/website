@@ -1,10 +1,18 @@
 import type { Metadata } from "next";
+import { getPrivacyPage } from "@/lib/sanity";
 import styles from "./policy.module.css";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "How Chesterfield Cleaning Fairies collects, uses and protects your personal data.",
-};
+export const revalidate = 60;
+
+export async function generateMetadata(): Promise<Metadata> {
+  const page = await getPrivacyPage();
+  return {
+    title: "Privacy Policy | Chesterfield Cleaning Fairies",
+    description:
+      page.metaDescription ??
+      "How Chesterfield Cleaning Fairies collects, uses and protects your personal data.",
+  };
+}
 
 export default function PrivacyPage() {
   return (

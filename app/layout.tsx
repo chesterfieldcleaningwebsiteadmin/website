@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Nunito_Sans } from "next/font/google";
+import { Cormorant_Garamond, Nunito_Sans, Dancing_Script } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
+import CursorTrail from "@/components/CursorTrail";
 
 const cormorant = Cormorant_Garamond({
   variable: "--font-cormorant",
@@ -14,6 +15,12 @@ const nunito = Nunito_Sans({
   variable: "--font-nunito",
   subsets: ["latin"],
   weight: ["400", "600", "700", "800"],
+});
+
+const dancing = Dancing_Script({
+  variable: "--font-script",
+  subsets: ["latin"],
+  weight: ["700"],
 });
 
 const GTM_ID = "GTM-M6LGSRJ7";
@@ -61,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${nunito.variable}`}>
+    <html lang="en" className={`${cormorant.variable} ${nunito.variable} ${dancing.variable}`}>
       <head>
         {/* Consent Mode v2 defaults — must run before GTM */}
         <Script
@@ -116,6 +123,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
+        <CursorTrail />
         {children}
       </body>
     </html>

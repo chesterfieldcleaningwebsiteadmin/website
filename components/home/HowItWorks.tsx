@@ -2,15 +2,17 @@ import styles from "./HowItWorks.module.css";
 
 interface Props {
   steps: { title: string; body: string }[];
+  eyebrow?: string;
+  heading?: string;
 }
 
-export default function HowItWorks({ steps }: Props) {
+export default function HowItWorks({ steps, eyebrow = "Simple from the start", heading = "How it works" }: Props) {
   return (
     <section id="how" className={styles.section}>
       <div className={styles.inner}>
         <div className={styles.intro}>
-          <span className={styles.eyebrow}>Simple from the start</span>
-          <h2 className={styles.heading}>How it works</h2>
+          <span className={styles.eyebrow}>{eyebrow}</span>
+          <h2 className={styles.heading}>{heading}</h2>
         </div>
         <div className={styles.grid}>
           {steps.map((step, i) => (

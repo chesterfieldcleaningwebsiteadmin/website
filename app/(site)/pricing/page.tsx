@@ -1,19 +1,27 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
-import { getServices, getHomePage } from "@/lib/sanity";
+import { getServices, getHomePage, getPricingPage } from "@/lib/sanity";
 import styles from "./pricing.module.css";
 
 export const revalidate = 60;
 
-export const metadata: Metadata = {
-  title: "Pricing | Chesterfield Cleaning Fairies",
-  description:
-    "Transparent pricing for domestic, commercial and specialist cleaning across Chesterfield & Derbyshire. Starting from £15/hr — get a free, no-obligation quote today.",
-};
+export async function generateMetadata(): Promise<Metadata> {
+  const pricing = await getPricingPage();
+  return {
+    title: "Pricing | Chesterfield Cleaning Fairies",
+    description:
+      pricing.metaDescription ??
+      "Transparent pricing for domestic, commercial and specialist cleaning across Chesterfield & Derbyshire. Starting from £15/hr — get a free, no-obligation quote today.",
+  };
+}
 
 export default async function PricingPage() {
-  const [services, home] = await Promise.all([getServices(), getHomePage()]);
+  const [services, home, pricing] = await Promise.all([
+    getServices(),
+    getHomePage(),
+    getPricingPage(),
+  ]);
 
   return (
     <main>
@@ -37,12 +45,9 @@ export default async function PricingPage() {
             <span>/</span>
             <span>Pricing</span>
           </nav>
-          <span className={styles.eyebrow}>Transparent pricing</span>
-          <h1 className={styles.heroHeading}>Simple, honest pricing</h1>
-          <p className={styles.heroSub}>
-            No hidden charges — just clear starting prices and a free, tailored
-            quote for your exact needs.
-          </p>
+          <span className={styles.eyebrow}>{pricing.heroEyebrow}</span>
+          <h1 className={styles.heroHeading}>{pricing.heroHeading}</h1>
+          <p className={styles.heroSub}>{pricing.heroSub}</p>
         </div>
       </section>
 
@@ -121,14 +126,7 @@ export default async function PricingPage() {
             ))}
           </div>
 
-          <p className={styles.note}>
-            All prices are starting prices. Final cost depends on property size,
-            condition and frequency.{" "}
-            <Link href="/contact" className={styles.noteLink}>
-              Contact us
-            </Link>{" "}
-            for a free, tailored quote — we usually reply the same day.
-          </p>
+          <p className={styles.note}>{pricing.footerNote}</p>
         </div>
       </section>
 

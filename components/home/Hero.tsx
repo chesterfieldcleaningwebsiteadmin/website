@@ -11,9 +11,44 @@ interface Props {
   heroImage?: SanityImage;
 }
 
+const HERO_PARTICLES = [
+  { top: "12%", left: "2%",  size: 5, delay: "0s",   dur: "12s" },
+  { top: "48%", left: "7%",  size: 4, delay: "1s",   dur: "11s" },
+  { top: "70%", left: "14%", size: 6, delay: "0.5s", dur: "14s" },
+  { top: "25%", left: "25%", size: 5, delay: "2s",   dur: "13s" },
+  { top: "62%", left: "33%", size: 4, delay: "0s",   dur: "10s" },
+  { top: "35%", left: "48%", size: 7, delay: "1.5s", dur: "15s" },
+  { top: "15%", left: "58%", size: 5, delay: "3s",   dur: "12s" },
+  { top: "65%", left: "65%", size: 4, delay: "0.5s", dur: "11s" },
+  { top: "28%", left: "76%", size: 6, delay: "2s",   dur: "13s" },
+  { top: "52%", left: "83%", size: 5, delay: "1s",   dur: "14s" },
+  { top: "75%", left: "88%", size: 4, delay: "0s",   dur: "10s" },
+  { top: "18%", left: "93%", size: 5, delay: "2.5s", dur: "12s" },
+  { top: "45%", left: "96%", size: 4, delay: "0.5s", dur: "11s" },
+  { top: "80%", left: "98%", size: 6, delay: "1.5s", dur: "13s" },
+] as const
+
 export default function Hero({ badge, heading, subheading, heroImage }: Props) {
   return (
     <section className={styles.hero}>
+      {/* floating fairy dust particles */}
+      {HERO_PARTICLES.map((p, i) => (
+        <svg
+          key={i}
+          viewBox="0 0 24 24"
+          width={p.size}
+          height={p.size}
+          aria-hidden="true"
+          className={styles.driftParticle}
+          style={{ top: p.top, left: p.left, animationDelay: p.delay, animationDuration: p.dur }}
+        >
+          <path
+            d="M12 .5c.85 6.4 4.25 9.8 10.7 10.7C16.25 12.05 12.85 15.45 12 21.9c-.85-6.45-4.25-9.85-10.7-10.7C7.75 10.3 11.15 6.9 12 .5Z"
+            fill="currentColor"
+          />
+        </svg>
+      ))}
+
       {/* decorative sparkles */}
       <svg
         viewBox="0 0 24 24"
@@ -43,21 +78,23 @@ export default function Hero({ badge, heading, subheading, heroImage }: Props) {
       <div className={styles.inner}>
         {/* Left: copy */}
         <div>
-          <span className={styles.badge}>
-            <svg
-              viewBox="0 0 24 24"
-              width="13"
-              height="13"
-              aria-hidden="true"
-              className={styles.badgeIcon}
-            >
-              <path
-                d="M12 .5c.85 6.4 4.25 9.8 10.7 10.7C16.25 12.05 12.85 15.45 12 21.9c-.85-6.45-4.25-9.85-10.7-10.7C7.75 10.3 11.15 6.9 12 .5Z"
-                fill="currentColor"
-              />
-            </svg>
-            {badge}
-          </span>
+          {badge && (
+            <span className={styles.badge}>
+              <svg
+                viewBox="0 0 24 24"
+                width="13"
+                height="13"
+                aria-hidden="true"
+                className={styles.badgeIcon}
+              >
+                <path
+                  d="M12 .5c.85 6.4 4.25 9.8 10.7 10.7C16.25 12.05 12.85 15.45 12 21.9c-.85-6.45-4.25-9.85-10.7-10.7C7.75 10.3 11.15 6.9 12 .5Z"
+                  fill="currentColor"
+                />
+              </svg>
+              {badge}
+            </span>
+          )}
           <h1 className={styles.heading}>
             {heading.split("\n").map((line, i, arr) => (
               <span key={i}>
@@ -114,12 +151,14 @@ export default function Hero({ badge, heading, subheading, heroImage }: Props) {
                 />
               </div>
             ) : (
-              <div className={styles.photoPlaceholder}>
-                <span className={styles.photoLabel}>
-                  [ bright photo:
-                  <br />
-                  sparkling-clean kitchen ]
-                </span>
+              <div className={styles.photoDark}>
+                <Image
+                  src="/images/logo.jpg"
+                  alt="Chesterfield Cleaning Fairies"
+                  width={260}
+                  height={260}
+                  className={styles.photoDarkLogo}
+                />
               </div>
             )}
             <div className={styles.ratingBadge}>

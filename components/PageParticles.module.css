@@ -1,0 +1,44 @@
+.layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.particle {
+  position: absolute;
+  bottom: -8px;
+  color: var(--secondary);
+  opacity: 0;
+  animation: ccfRise linear infinite;
+  will-change: transform, opacity;
+}
+
+@keyframes ccfRise {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  8% {
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateY(-55vh) translateX(var(--drift));
+    opacity: 0.38;
+  }
+  92% {
+    opacity: 0.12;
+  }
+  100% {
+    transform: translateY(-110vh) translateX(0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .particle {
+    animation: none;
+    opacity: 0;
+  }
+}

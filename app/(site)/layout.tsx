@@ -3,6 +3,7 @@ import Footer from "@/components/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import PromoBanner from "@/components/PromoBanner";
+import PageParticles from "@/components/PageParticles";
 import { SITE_SETTINGS } from "@/lib/data";
 import { getPromoBanner } from "@/lib/sanity";
 
@@ -15,6 +16,7 @@ export default async function SiteLayout({
 
   return (
     <>
+      <PageParticles />
       {promoBanner && <PromoBanner banner={promoBanner} />}
       <Header />
       {children}

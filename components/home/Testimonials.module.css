@@ -133,3 +133,22 @@
   border-color: var(--primary);
   background: var(--primary-soft);
 }
+
+.writeReviewChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-soft);
+  border: 1.5px solid var(--border);
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+
+.writeReviewChip:hover {
+  border-color: var(--gold);
+  color: var(--gold-deep, var(--gold));
+  background: var(--surface-alt);
+}

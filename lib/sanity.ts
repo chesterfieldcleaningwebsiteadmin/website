@@ -190,6 +190,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
         areaPages[]{ name, slug },
         googleRating,
         googleReviewCount,
+        googleWriteReviewUrl,
         streetAddress,
         openingHours,
         instagramHighlights[]{ image, caption },

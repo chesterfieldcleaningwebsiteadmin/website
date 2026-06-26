@@ -72,14 +72,13 @@ export default function Header() {
                     {s.title}
                   </Link>
                 ))}
-                <div className={styles.dropdownDivider} />
-                <Link href="/pricing" className={`${styles.dropdownLink} ${styles.dropdownPricing}`}>
-                  View pricing guide →
-                </Link>
               </div>
             </div>
           </div>
 
+          <Link href="/pricing" className={styles.navLink}>
+            Pricing
+          </Link>
           <Link href="/#how" className={styles.navLink}>
             How it works
           </Link>
@@ -182,16 +181,16 @@ export default function Header() {
                   {s.title}
                 </Link>
               ))}
-              <Link
-                href="/pricing"
-                onClick={closeAll}
-                className={`${styles.mobileSubLink} ${styles.mobileSubLinkPricing}`}
-              >
-                View pricing guide →
-              </Link>
             </div>
           )}
 
+          <Link
+            href="/pricing"
+            onClick={closeAll}
+            className={styles.mobileLink}
+          >
+            Pricing
+          </Link>
           <Link
             href="/#how"
             onClick={closeAll}

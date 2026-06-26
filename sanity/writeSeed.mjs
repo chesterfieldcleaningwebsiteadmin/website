@@ -30,10 +30,23 @@ const documents = readFileSync(ndjsonPath, 'utf-8')
   .filter(line => line.trim())
   .map(line => JSON.parse(line))
 
+// Recursively remove image fields so owner-uploaded photos are never overwritten
+function stripImages(val) {
+  if (!val || typeof val !== 'object') return val
+  if (val._type === 'image') return undefined
+  if (Array.isArray(val)) return val.map(stripImages).filter(v => v !== undefined)
+  const out = {}
+  for (const [k, v] of Object.entries(val)) {
+    const stripped = stripImages(v)
+    if (stripped !== undefined) out[k] = stripped
+  }
+  return out
+}
+
 console.log(`Seeding ${documents.length} documents into ${env.NEXT_PUBLIC_SANITY_PROJECT_ID}/${env.NEXT_PUBLIC_SANITY_DATASET || 'production'}...\n`)
 
 for (const doc of documents) {
-  await client.createOrReplace(doc)
+  await client.createOrReplace(stripImages(doc))
   console.log(`  ✓  ${doc._type.padEnd(20)} ${doc._id}`)
 }
 

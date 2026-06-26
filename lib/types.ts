@@ -130,6 +130,7 @@ export interface SiteSettings {
   areaPages?: { name: string; slug: { current: string } }[];
   googleRating?: number;
   googleReviewCount?: number;
+  googleWriteReviewUrl?: string;
   streetAddress?: string;
   openingHours?: string;
   instagramHighlights?: InstagramHighlight[];

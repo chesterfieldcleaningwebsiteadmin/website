@@ -39,6 +39,7 @@ export const siteSettings = defineType({
     }),
     defineField({ name: "googleRating", title: "Google rating (e.g. 4.9)", type: "number", description: "Your current Google star rating" }),
     defineField({ name: "googleReviewCount", title: "Number of Google reviews", type: "number", description: "Total review count shown on Google" }),
+    defineField({ name: "googleWriteReviewUrl", title: "Google — write a review URL", type: "url", description: "Paste the direct link for customers to write a new Google review. Find it in Google Business Profile → 'Ask for reviews'." }),
     defineField({ name: "streetAddress", title: "Address / area", type: "string", description: "e.g. Chesterfield, Derbyshire, S40" }),
     defineField({ name: "openingHours", title: "Opening hours", type: "string", description: "e.g. Monday–Saturday, 8am–6pm" }),
     defineField({

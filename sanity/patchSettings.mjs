@@ -36,6 +36,7 @@ await client.patch('siteSettings').set({
     ],
   },
   areaPages: [
+    { _key: 'a0', name: 'Chesterfield',  slug: { _type: 'slug', current: 'chesterfield' } },
     { _key: 'a1', name: 'Dronfield',     slug: { _type: 'slug', current: 'dronfield' } },
     { _key: 'a2', name: 'Staveley',      slug: { _type: 'slug', current: 'staveley' } },
     { _key: 'a3', name: 'Eckington',     slug: { _type: 'slug', current: 'eckington' } },

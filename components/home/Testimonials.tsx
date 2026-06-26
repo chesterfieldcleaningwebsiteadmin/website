@@ -6,11 +6,12 @@ interface Props {
   googleReviewsUrl?: string;
   googleRating?: number;
   googleReviewCount?: number;
+  googleWriteReviewUrl?: string;
   eyebrow?: string;
   heading?: string;
 }
 
-export default function Testimonials({ testimonials, googleReviewsUrl, googleRating, googleReviewCount, eyebrow = "Kind words ♥", heading = "Loved by local homes & businesses" }: Props) {
+export default function Testimonials({ testimonials, googleReviewsUrl, googleRating, googleReviewCount, googleWriteReviewUrl, eyebrow = "Kind words ♥", heading = "Loved by local homes & businesses" }: Props) {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
@@ -73,6 +74,19 @@ export default function Testimonials({ testimonials, googleReviewsUrl, googleRat
                 <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
                   <path d="M5 12h13M13 6l6 6-6 6" fill="none" stroke="currentColor" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
+              </a>
+            )}
+            {googleWriteReviewUrl && (
+              <a
+                href={googleWriteReviewUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.writeReviewChip}
+              >
+                <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M12 20h9M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z" />
+                </svg>
+                Write your own review
               </a>
             )}
           </div>

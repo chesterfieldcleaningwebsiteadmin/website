@@ -49,12 +49,13 @@ export default async function HomePage() {
         <ServicesGrid services={services} eyebrow={home.servicesEyebrow} heading={home.servicesHeading} sub={home.servicesSub} />
         <HowItWorks steps={home.howSteps} eyebrow={home.howEyebrow} heading={home.howHeading} />
         <WhyChooseUs heading={home.whyHeading} points={home.whyPoints} />
-        <Areas areas={settings.areas} areasIntro={settings.areasIntro} />
+        <Areas areas={settings.areas} areasIntro={settings.areasIntro} areaPages={settings.areaPages} />
         <Testimonials
           testimonials={testimonials}
           googleReviewsUrl={home.googleReviewsUrl}
           googleRating={settings.googleRating}
           googleReviewCount={settings.googleReviewCount}
+          googleWriteReviewUrl={settings.googleWriteReviewUrl}
           eyebrow={home.testimonialsEyebrow}
           heading={home.testimonialsHeading}
         />

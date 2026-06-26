@@ -1,6 +1,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { schemaTypes } from "./sanity/schemaTypes";
+import { systemsInfoPlugin } from "./sanity/SystemsInfoPlugin";
 
 const SINGLETONS = ["homePage", "siteSettings", "aboutPage"];
 
@@ -13,6 +14,7 @@ export default defineConfig({
   schema: { types: schemaTypes },
 
   plugins: [
+    systemsInfoPlugin(),
     structureTool({
       structure: (S) =>
         S.list()

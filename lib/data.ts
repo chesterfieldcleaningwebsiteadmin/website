@@ -74,20 +74,17 @@ export const SITE_SETTINGS: SiteSettings = {
 export const PRICE_CALCULATOR_DEFAULTS: PriceCalculatorSettings = {
   show: true,
   heading: "Get an instant estimate",
-  subheading: "Select your property size and how often you'd like us — we'll show you a ballpark price.",
-  hourlyRate: 15,
-  propertyTiers: [
-    { label: "Studio / 1 bedroom", minHours: 2, maxHours: 3 },
-    { label: "2 bedrooms", minHours: 3, maxHours: 4 },
-    { label: "3 bedrooms", minHours: 4, maxHours: 5 },
-    { label: "4+ bedrooms", minHours: 5, maxHours: 7 },
+  subheading: "Select your property size and how often you'd like us — we'll show you a price.",
+  showOneOff: true,
+  showFortnightly: true,
+  showWeekly: true,
+  tiers: [
+    { label: "Studio / 1 bedroom", oneOffPrice: 35, fortnightlyPrice: 30, weeklyPrice: 28 },
+    { label: "2 bedrooms",         oneOffPrice: 55, fortnightlyPrice: 45, weeklyPrice: 42 },
+    { label: "3 bedrooms",         oneOffPrice: 75, fortnightlyPrice: 60, weeklyPrice: 58 },
+    { label: "4+ bedrooms",        oneOffPrice: 110, fortnightlyPrice: 90, weeklyPrice: 85 },
   ],
-  frequencyOptions: [
-    { label: "One-off clean", discountPct: 0 },
-    { label: "Fortnightly", discountPct: 0 },
-    { label: "Weekly", discountPct: 10 },
-  ],
-  disclaimer: "Estimates are a guide only. Final price confirmed after a quick chat about your exact needs.",
+  disclaimer: "Prices are a guide only. Final price confirmed after a quick chat about your exact needs.",
   ctaText: "Get your exact quote",
   ctaHref: "/contact",
 };

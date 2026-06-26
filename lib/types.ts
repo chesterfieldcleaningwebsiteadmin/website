@@ -143,22 +143,19 @@ export interface SiteSettings {
 
 export interface PriceCalculatorTier {
   label: string;
-  minHours: number;
-  maxHours: number;
-}
-
-export interface PriceCalculatorFrequency {
-  label: string;
-  discountPct: number;
+  oneOffPrice: number;
+  fortnightlyPrice: number;
+  weeklyPrice: number;
 }
 
 export interface PriceCalculatorSettings {
   show: boolean;
   heading: string;
   subheading?: string;
-  hourlyRate: number;
-  propertyTiers: PriceCalculatorTier[];
-  frequencyOptions: PriceCalculatorFrequency[];
+  showOneOff: boolean;
+  showFortnightly: boolean;
+  showWeekly: boolean;
+  tiers: PriceCalculatorTier[];
   disclaimer?: string;
   ctaText?: string;
   ctaHref?: string;

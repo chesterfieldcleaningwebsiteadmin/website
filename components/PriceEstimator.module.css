@@ -155,11 +155,10 @@
   line-height: 1;
 }
 
-.resultDiscount {
-  font-size: 0.78rem;
-  color: var(--secondary);
-  font-weight: 600;
-  margin-top: 0.4rem;
+.resultContext {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+  margin-top: 0.35rem;
 }
 
 .resultPlaceholder {

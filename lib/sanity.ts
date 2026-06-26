@@ -277,9 +277,10 @@ export async function getPriceCalculator(): Promise<PriceCalculatorSettings> {
           show,
           heading,
           subheading,
-          hourlyRate,
-          propertyTiers[] { label, minHours, maxHours },
-          frequencyOptions[] { label, discountPct },
+          showOneOff,
+          showFortnightly,
+          showWeekly,
+          tiers[] { label, oneOffPrice, fortnightlyPrice, weeklyPrice },
           disclaimer,
           ctaText,
           ctaHref

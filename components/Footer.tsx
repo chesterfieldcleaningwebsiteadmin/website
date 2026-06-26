@@ -110,13 +110,13 @@ export default async function Footer() {
         <div>
           <h4 className={styles.colHeading}>Areas we cover</h4>
           {(settings.areaPages ?? []).length > 0 ? (
-            <>
+            <div className={styles.areasWrap}>
               {(settings.areaPages ?? []).map((area) => (
-                <Link key={area.slug.current} href={`/areas/${area.slug.current}`} className={styles.serviceLink}>
+                <Link key={area.slug.current} href={`/areas/${area.slug.current}`} className={styles.areaLink}>
                   {area.name}
                 </Link>
               ))}
-            </>
+            </div>
           ) : (
             <p className={styles.areasText}>
               {settings.areas.slice(0, 9).join(", ")} &amp; surrounding Derbyshire villages.

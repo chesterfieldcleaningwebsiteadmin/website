@@ -142,6 +142,35 @@
   line-height: 1.7;
 }
 
+.areasWrap {
+  /* mobile: stacked list (default) */
+}
+
+.areaLink {
+  display: block;
+  font-size: 14.5px;
+  margin-bottom: 11px;
+  transition: color 0.15s;
+}
+
+.areaLink:hover {
+  color: var(--gold);
+}
+
+@media (min-width: 900px) {
+  .areaLink {
+    display: inline;
+    margin-bottom: 0;
+    font-size: 14px;
+    line-height: 1.9;
+  }
+
+  .areaLink:not(:last-child)::after {
+    content: " · ";
+    color: rgba(255, 255, 255, 0.35);
+  }
+}
+
 /* ── Copyright bar ── */
 .bar {
   max-width: 1180px;

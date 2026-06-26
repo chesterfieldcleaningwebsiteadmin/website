@@ -26,15 +26,6 @@ await client.patch('siteSettings').set({
   googleReviewCount: 12,
   streetAddress: 'Chesterfield, Derbyshire',
   openingHours: 'Monday–Saturday, 8am–6pm',
-  statsStrip: {
-    show: true,
-    stats: [
-      { _key: 's1', value: '500+', label: 'Happy homes' },
-      { _key: 's2', value: '5★',  label: 'Google rated' },
-      { _key: 's3', value: '14',   label: 'Areas covered' },
-      { _key: 's4', value: '100%', label: 'Insured & DBS-checked' },
-    ],
-  },
   areaPages: [
     { _key: 'a0', name: 'Chesterfield',  slug: { _type: 'slug', current: 'chesterfield' } },
     { _key: 'a1', name: 'Dronfield',     slug: { _type: 'slug', current: 'dronfield' } },

@@ -97,6 +97,15 @@
   box-shadow: 0 4px 14px -8px rgba(40, 20, 60, 0.2);
 }
 
+.ratingBadgeLink {
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.ratingBadgeLink:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 18px -6px rgba(40, 20, 60, 0.3);
+}
+
 .ratingStars {
   color: #fbbc04;
   font-size: 18px;

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/home/Hero";
 import TrustStrip from "@/components/TrustStrip";
-import StatsStrip from "@/components/StatsStrip";
 import ServicesGrid from "@/components/home/ServicesGrid";
 import HowItWorks from "@/components/home/HowItWorks";
 import WhyChooseUs from "@/components/home/WhyChooseUs";
@@ -33,8 +32,6 @@ export default async function HomePage() {
     getHomePage(),
   ]);
 
-  const statsItems = settings.statsStrip?.show !== false ? (settings.statsStrip?.stats ?? []) : [];
-
   return (
     <>
       <main>
@@ -44,7 +41,6 @@ export default async function HomePage() {
           subheading={home.heroSubheading}
           heroImage={home.heroImage}
         />
-        {statsItems.length > 0 && <StatsStrip stats={statsItems} />}
         <TrustStrip items={home.trustItems} />
         <ServicesGrid services={services} eyebrow={home.servicesEyebrow} heading={home.servicesHeading} sub={home.servicesSub} />
         <HowItWorks steps={home.howSteps} eyebrow={home.howEyebrow} heading={home.howHeading} />

@@ -51,11 +51,25 @@ export default function Testimonials({ testimonials, googleReviewsUrl, googleRat
         {(googleReviewsUrl || googleRating || googleReviewCount) && (
           <div className={styles.reviewsCta}>
             {(googleRating || googleReviewCount) && (
-              <div className={styles.ratingBadge} aria-label={`Rated ${googleRating} out of 5 from ${googleReviewCount} Google reviews`}>
-                <span className={styles.ratingStars} aria-hidden="true">★★★★★</span>
-                {googleRating && <span className={styles.ratingScore}>{googleRating}</span>}
-                {googleReviewCount && <span className={styles.ratingCount}>· {googleReviewCount} reviews on Google</span>}
-              </div>
+              googleReviewsUrl ? (
+                <a
+                  href={googleReviewsUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`${styles.ratingBadge} ${styles.ratingBadgeLink}`}
+                  aria-label={`Rated ${googleRating} out of 5 from ${googleReviewCount} Google reviews — opens in new tab`}
+                >
+                  <span className={styles.ratingStars} aria-hidden="true">★★★★★</span>
+                  {googleRating && <span className={styles.ratingScore}>{googleRating}</span>}
+                  {googleReviewCount && <span className={styles.ratingCount}>· {googleReviewCount} reviews on Google</span>}
+                </a>
+              ) : (
+                <div className={styles.ratingBadge} aria-label={`Rated ${googleRating} out of 5 from ${googleReviewCount} Google reviews`}>
+                  <span className={styles.ratingStars} aria-hidden="true">★★★★★</span>
+                  {googleRating && <span className={styles.ratingScore}>{googleRating}</span>}
+                  {googleReviewCount && <span className={styles.ratingCount}>· {googleReviewCount} reviews on Google</span>}
+                </div>
+              )
             )}
             {googleReviewsUrl && (
               <a

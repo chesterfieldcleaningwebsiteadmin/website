@@ -83,6 +83,26 @@ export const siteSettings = defineType({
       title: "Price calculator",
       type: "object",
       description: "Interactive price estimator shown on the Pricing page. Toggle off to hide it entirely.",
+      initialValue: {
+        show: true,
+        heading: "Get an instant estimate",
+        subheading: "Select your property size and how often you'd like us — we'll show you a ballpark price.",
+        hourlyRate: 15,
+        propertyTiers: [
+          { label: "Studio / 1 bedroom", minHours: 2, maxHours: 3 },
+          { label: "2 bedrooms", minHours: 3, maxHours: 4 },
+          { label: "3 bedrooms", minHours: 4, maxHours: 5 },
+          { label: "4+ bedrooms", minHours: 5, maxHours: 7 },
+        ],
+        frequencyOptions: [
+          { label: "One-off clean", discountPct: 0 },
+          { label: "Fortnightly", discountPct: 0 },
+          { label: "Weekly", discountPct: 10 },
+        ],
+        disclaimer: "Estimates are a guide only. Final price confirmed after a quick chat about your exact needs.",
+        ctaText: "Get your exact quote",
+        ctaHref: "/contact",
+      },
       fields: [
         defineField({ name: "show", title: "Show price calculator", type: "boolean", initialValue: true }),
         defineField({ name: "heading", title: "Heading", type: "string" }),

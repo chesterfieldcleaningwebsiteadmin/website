@@ -23,6 +23,20 @@ export const siteSettings = defineType({
       type: "array",
       of: [{ type: "string" }],
     }),
+    defineField({
+      name: "areaPages",
+      title: "Area landing pages",
+      description: "Each entry creates a dedicated SEO page at /areas/[slug]. Add the towns you most want to rank for.",
+      type: "array",
+      of: [{
+        type: "object",
+        fields: [
+          { name: "name", type: "string", title: "Area name (e.g. Dronfield)" },
+          { name: "slug", type: "slug", title: "URL slug", options: { source: "name" } },
+        ],
+        preview: { select: { title: "name", subtitle: "slug.current" } },
+      }],
+    }),
     defineField({ name: "googleRating", title: "Google rating (e.g. 4.9)", type: "number", description: "Your current Google star rating" }),
     defineField({ name: "googleReviewCount", title: "Number of Google reviews", type: "number", description: "Total review count shown on Google" }),
     defineField({ name: "streetAddress", title: "Address / area", type: "string", description: "e.g. Chesterfield, Derbyshire, S40" }),

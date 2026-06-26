@@ -16,9 +16,11 @@ import { getServices, getTestimonials, getSiteSettings, getHomePage } from "@/li
 export const revalidate = 60;
 
 export async function generateMetadata(): Promise<Metadata> {
+  const home = await getHomePage();
   return {
-    title: { absolute: "Chesterfield Cleaning Fairies | Local, Insured Cleaning" },
+    title: { absolute: home.metaTitle ?? "Chesterfield Cleaning Fairies | Local, Insured Cleaning" },
     description:
+      home.metaDescription ??
       "Trusted, insured cleaning for homes and businesses across Chesterfield & Derbyshire — delivered by a friendly, local team you'll be happy to give a key to.",
   };
 }

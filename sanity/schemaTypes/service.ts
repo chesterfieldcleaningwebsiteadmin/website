@@ -5,6 +5,7 @@ export const service = defineType({
   title: "Service",
   type: "document",
   fields: [
+    defineField({ name: "metaTitle", title: "SEO title (overrides default)", type: "string", description: "Leave blank to use the service title. Max ~60 characters." }),
     defineField({ name: "title", title: "Title", type: "string" }),
     defineField({ name: "slug", title: "Slug", type: "slug", options: { source: "title" } }),
     defineField({ name: "eyebrow", title: "Eyebrow label", type: "string" }),

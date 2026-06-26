@@ -5,6 +5,10 @@ export const homePage = defineType({
   title: "Home Page",
   type: "document",
   fields: [
+    // SEO
+    defineField({ name: "metaTitle", title: "SEO title (overrides default)", type: "string", description: "Leave blank to use the default page title. Max ~60 characters." }),
+    defineField({ name: "metaDescription", title: "SEO meta description", type: "text", rows: 2, description: "Shown in Google search results. Max ~160 characters." }),
+
     // Hero
     defineField({ name: "heroImage", title: "Hero photo", type: "image", options: { hotspot: true } }),
     defineField({ name: "heroBadge", title: "Hero badge text", type: "string" }),

@@ -49,6 +49,7 @@ export async function getServices(): Promise<Service[]> {
     const result = await client.fetch(`
       *[_type == "service"] | order(displayOrder asc) {
         _id,
+        metaTitle,
         title,
         "slug": slug.current,
         eyebrow,
@@ -75,6 +76,7 @@ export async function getService(slug: string): Promise<Service | null> {
     const result = await client.fetch(`
       *[_type == "service" && slug.current == $slug][0] {
         _id,
+        metaTitle,
         title,
         "slug": slug.current,
         eyebrow,
@@ -117,6 +119,8 @@ export async function getHomePage(): Promise<HomePage> {
   try {
     const result = await client.fetch(`
       *[_type == "homePage"][0] {
+        metaTitle,
+        metaDescription,
         heroImage,
         heroBadge,
         heroHeading,
@@ -156,6 +160,7 @@ export async function getAboutPage(): Promise<AboutPage> {
   try {
     const result = await client.fetch(`
       *[_type == "aboutPage"][0] {
+        metaTitle,
         metaDescription,
         heading,
         subheading,
@@ -182,6 +187,7 @@ export async function getSiteSettings(): Promise<SiteSettings> {
         footerBlurb,
         areas,
         areasIntro,
+        areaPages[]{ name, slug },
         googleRating,
         googleReviewCount,
         streetAddress,
@@ -206,6 +212,7 @@ export async function getContactPage(): Promise<ContactPage> {
   try {
     const result = await client.fetch(`
       *[_type == "contactPage"][0] {
+        metaTitle,
         metaDescription,
         heroEyebrow,
         heroHeading,
@@ -223,6 +230,7 @@ export async function getPricingPage(): Promise<PricingPage> {
   try {
     const result = await client.fetch(`
       *[_type == "pricingPage"][0] {
+        metaTitle,
         metaDescription,
         heroEyebrow,
         heroHeading,

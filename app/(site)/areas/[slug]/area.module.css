@@ -1,0 +1,165 @@
+.hero {
+  background: var(--hero-grad);
+  padding: clamp(2.5rem, 5vw, 4rem) 1.25rem clamp(2.5rem, 5vw, 3.5rem);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroInner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--text-soft);
+  margin-bottom: 1.5rem;
+}
+
+.breadcrumb a {
+  color: var(--text-soft);
+  transition: color 0.15s;
+}
+
+.breadcrumb a:hover {
+  color: var(--primary);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-family: var(--font-nunito), "Nunito Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 0.6rem;
+}
+
+.heroHeading {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 600;
+  color: var(--primary-deep);
+  line-height: 1.12;
+  margin-bottom: 1rem;
+}
+
+.heroSub {
+  font-size: 1.05rem;
+  color: var(--text-soft);
+  line-height: 1.6;
+  max-width: 540px;
+  margin-bottom: 2rem;
+}
+
+.heroCtaBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--primary);
+  color: #fff;
+  padding: 0.85rem 1.75rem;
+  border-radius: 8px;
+  font-family: var(--font-nunito), "Nunito Sans", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.heroCtaBtn:hover {
+  opacity: 0.88;
+}
+
+/* ── Services section ── */
+.services {
+  padding: clamp(3rem, 6vw, 5rem) 1.25rem;
+  background: var(--surface);
+}
+
+.servicesInner {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.sectionEyebrow {
+  display: inline-block;
+  font-family: var(--font-nunito), "Nunito Sans", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.sectionHeading {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--primary-deep);
+  line-height: 1.18;
+  margin-bottom: 2.5rem;
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+.serviceCard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--cream);
+  border: 1.5px solid var(--rule);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.serviceCard:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+.serviceEyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+}
+
+.serviceTitle {
+  font-family: var(--font-cormorant), "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--primary-deep);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.serviceBlurb {
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.serviceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-top: 0.5rem;
+}

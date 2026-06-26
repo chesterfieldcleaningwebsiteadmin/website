@@ -46,7 +46,7 @@ export async function generateMetadata({
     }] : []),
   ];
   return {
-    title: { absolute: `${svc.title} | Chesterfield Cleaning Fairies` },
+    title: { absolute: svc.metaTitle ?? `${svc.title} | Chesterfield Cleaning Fairies` },
     description: svc.heroDescription,
     other: { "application/ld+json": JSON.stringify(schemas) },
   };

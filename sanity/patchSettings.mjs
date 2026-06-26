@@ -35,6 +35,17 @@ await client.patch('siteSettings').set({
       { _key: 's4', value: '100%', label: 'Insured & DBS-checked' },
     ],
   },
+  areaPages: [
+    { _key: 'a1', name: 'Dronfield',     slug: { _type: 'slug', current: 'dronfield' } },
+    { _key: 'a2', name: 'Staveley',      slug: { _type: 'slug', current: 'staveley' } },
+    { _key: 'a3', name: 'Eckington',     slug: { _type: 'slug', current: 'eckington' } },
+    { _key: 'a4', name: 'Clay Cross',    slug: { _type: 'slug', current: 'clay-cross' } },
+    { _key: 'a5', name: 'Brimington',    slug: { _type: 'slug', current: 'brimington' } },
+    { _key: 'a6', name: 'Holymoorside', slug: { _type: 'slug', current: 'holymoorside' } },
+    { _key: 'a7', name: 'Wingerworth',   slug: { _type: 'slug', current: 'wingerworth' } },
+    { _key: 'a8', name: 'Hasland',       slug: { _type: 'slug', current: 'hasland' } },
+    { _key: 'a9', name: 'Brampton',      slug: { _type: 'slug', current: 'brampton' } },
+  ],
 }).commit()
 
 console.log('siteSettings patched.')

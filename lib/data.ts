@@ -53,6 +53,7 @@ export const SITE_SETTINGS: SiteSettings = {
   googleReviewCount: 12,
   streetAddress: "Chesterfield, Derbyshire",
   openingHours: "Monday–Saturday, 8am–6pm",
+  areaPages: [],
 };
 
 export const SERVICES: Service[] = [

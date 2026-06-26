@@ -9,7 +9,7 @@ export const revalidate = 60;
 export async function generateMetadata(): Promise<Metadata> {
   const pricing = await getPricingPage();
   return {
-    title: { absolute: "Pricing | Chesterfield Cleaning Fairies" },
+    title: { absolute: pricing.metaTitle ?? "Pricing | Chesterfield Cleaning Fairies" },
     description:
       pricing.metaDescription ??
       "Transparent pricing for domestic, commercial and specialist cleaning across Chesterfield & Derbyshire. Starting from £15/hr — get a free, no-obligation quote today.",

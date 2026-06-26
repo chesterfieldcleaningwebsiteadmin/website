@@ -5,6 +5,7 @@ export interface Faq {
 
 export interface Service {
   _id?: string;
+  metaTitle?: string;
   title: string;
   slug: string;
   shortBlurb: string;
@@ -47,6 +48,8 @@ export interface BeforeAfterItem {
 }
 
 export interface HomePage {
+  metaTitle?: string;
+  metaDescription?: string;
   heroImage?: SanityImage;
   heroBadge: string;
   heroHeading: string;
@@ -70,6 +73,7 @@ export interface HomePage {
 }
 
 export interface ContactPage {
+  metaTitle?: string;
   metaDescription?: string;
   heroEyebrow: string;
   heroHeading: string;
@@ -78,6 +82,7 @@ export interface ContactPage {
 }
 
 export interface PricingPage {
+  metaTitle?: string;
   metaDescription?: string;
   heroEyebrow: string;
   heroHeading: string;
@@ -94,6 +99,7 @@ export interface CookiesPage {
 }
 
 export interface AboutPage {
+  metaTitle?: string;
   heading: string;
   subheading: string;
   storyHeading: string;
@@ -121,6 +127,7 @@ export interface SiteSettings {
   footerBlurb: string;
   areas: string[];
   areasIntro: string;
+  areaPages?: { name: string; slug: { current: string } }[];
   googleRating?: number;
   googleReviewCount?: number;
   streetAddress?: string;

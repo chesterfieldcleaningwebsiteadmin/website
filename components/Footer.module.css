@@ -138,18 +138,48 @@
 }
 
 .areasText {
-  font-size: 14.5px;
-  line-height: 1.7;
+  font-size: 14px;
+  line-height: 1.9;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ── Areas full-width row ── */
+.areasRow {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 18px 0;
+  margin-top: clamp(28px, 4vw, 44px);
+}
+
+.areasRowInner {
+  max-width: 1180px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 clamp(18px, 5vw, 40px);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 0;
+}
+
+.areasRowLabel {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+  margin-right: 18px;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .areasWrap {
-  /* mobile: stacked list (default) */
+  display: inline;
 }
 
 .areaLink {
-  display: block;
-  font-size: 14.5px;
-  margin-bottom: 11px;
+  display: inline;
+  font-size: 14px;
+  line-height: 1.9;
   transition: color 0.15s;
 }
 
@@ -157,24 +187,15 @@
   color: var(--gold);
 }
 
-@media (min-width: 900px) {
-  .areaLink {
-    display: inline;
-    margin-bottom: 0;
-    font-size: 14px;
-    line-height: 1.9;
-  }
-
-  .areaLink:not(:last-child)::after {
-    content: " · ";
-    color: rgba(255, 255, 255, 0.35);
-  }
+.areaLink:not(:last-child)::after {
+  content: " · ";
+  color: rgba(255, 255, 255, 0.3);
 }
 
 /* ── Copyright bar ── */
 .bar {
   max-width: 1180px;
-  margin: clamp(36px, 5vw, 52px) auto 0;
+  margin: 0 auto;
   width: 100%;
   padding: 20px clamp(18px, 5vw, 40px);
   border-top: 1px solid rgba(255, 255, 255, 0.14);

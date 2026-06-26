@@ -106,22 +106,25 @@ export default async function Footer() {
           <Link href="/cookies" className={styles.serviceLink}>Cookie policy</Link>
         </div>
 
-        {/* Areas */}
-        <div>
-          <h4 className={styles.colHeading}>Areas we cover</h4>
-          {(settings.areaPages ?? []).length > 0 ? (
-            <div className={styles.areasWrap}>
-              {(settings.areaPages ?? []).map((area) => (
+      </div>
+
+      {/* Areas — full-width row below the columns */}
+      <div className={styles.areasRow}>
+        <div className={styles.areasRowInner}>
+          <span className={styles.areasRowLabel}>Areas we cover</span>
+          <div className={styles.areasWrap}>
+            {(settings.areaPages ?? []).length > 0 ? (
+              (settings.areaPages ?? []).map((area) => (
                 <Link key={area.slug.current} href={`/areas/${area.slug.current}`} className={styles.areaLink}>
                   {area.name}
                 </Link>
-              ))}
-            </div>
-          ) : (
-            <p className={styles.areasText}>
-              {settings.areas.slice(0, 9).join(", ")} &amp; surrounding Derbyshire villages.
-            </p>
-          )}
+              ))
+            ) : (
+              <span className={styles.areasText}>
+                {settings.areas.join(" · ")}
+              </span>
+            )}
+          </div>
         </div>
       </div>
 

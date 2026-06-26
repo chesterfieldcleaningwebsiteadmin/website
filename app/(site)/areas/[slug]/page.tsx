@@ -46,8 +46,8 @@ export async function generateMetadata({
   ];
 
   return {
-    title: { absolute: `Cleaning Services in ${area.name} | Chesterfield Cleaning Fairies` },
-    description: `Professional, insured cleaning for homes and businesses in ${area.name}, Derbyshire. Same-day quotes — friendly local team from Chesterfield.`,
+    title: { absolute: `${area.name} House Cleaning | Chesterfield Cleaning Fairies` },
+    description: `Trusted, insured house cleaning in ${area.name}, Derbyshire. Domestic, deep, end-of-tenancy & Airbnb cleans from £15/hr. DBS-checked local team. Same-day quotes.`,
     other: { "application/ld+json": JSON.stringify(schemas) },
   };
 }

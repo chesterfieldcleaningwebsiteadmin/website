@@ -8,9 +8,9 @@ export const revalidate = 60;
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: { absolute: "Areas We Cover | Chesterfield Cleaning Fairies" },
+    title: { absolute: "House Cleaning Areas | Chesterfield & Derbyshire" },
     description:
-      "Chesterfield Cleaning Fairies provides professional, insured cleaning across Chesterfield, Derbyshire and surrounding villages. Find your local area below.",
+      "Chesterfield Cleaning Fairies covers Chesterfield and surrounding Derbyshire towns — Dronfield, Staveley, Clay Cross, Wingerworth and more. Free local quotes.",
   };
 }
 

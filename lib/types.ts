@@ -141,6 +141,29 @@ export interface SiteSettings {
   };
 }
 
+export interface PriceCalculatorTier {
+  label: string;
+  minHours: number;
+  maxHours: number;
+}
+
+export interface PriceCalculatorFrequency {
+  label: string;
+  discountPct: number;
+}
+
+export interface PriceCalculatorSettings {
+  show: boolean;
+  heading: string;
+  subheading?: string;
+  hourlyRate: number;
+  propertyTiers: PriceCalculatorTier[];
+  frequencyOptions: PriceCalculatorFrequency[];
+  disclaimer?: string;
+  ctaText?: string;
+  ctaHref?: string;
+}
+
 export interface PromoBanner {
   enabled: boolean;
   text: string;

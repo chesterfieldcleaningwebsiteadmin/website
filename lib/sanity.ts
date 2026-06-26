@@ -1,6 +1,6 @@
 import { createClient } from 'next-sanity'
-import type { Service, Testimonial, SiteSettings, HomePage, PromoBanner, AboutPage, ContactPage, PricingPage, PrivacyPage, CookiesPage } from './types'
-import { SITE_SETTINGS, TESTIMONIALS, SERVICES, ABOUT_PAGE, CONTACT_PAGE, PRICING_PAGE, PRIVACY_PAGE, COOKIES_PAGE } from './data'
+import type { Service, Testimonial, SiteSettings, HomePage, PromoBanner, AboutPage, ContactPage, PricingPage, PrivacyPage, CookiesPage, PriceCalculatorSettings } from './types'
+import { SITE_SETTINGS, TESTIMONIALS, SERVICES, ABOUT_PAGE, CONTACT_PAGE, PRICING_PAGE, PRIVACY_PAGE, COOKIES_PAGE, PRICE_CALCULATOR_DEFAULTS } from './data'
 
 const HOME_PAGE_FALLBACK: HomePage = {
   heroBadge: '',
@@ -266,6 +266,29 @@ export async function getCookiesPage(): Promise<CookiesPage> {
     return result ?? COOKIES_PAGE
   } catch {
     return COOKIES_PAGE
+  }
+}
+
+export async function getPriceCalculator(): Promise<PriceCalculatorSettings> {
+  try {
+    const result = await client.fetch(`
+      *[_type == "siteSettings"][0] {
+        priceCalculator {
+          show,
+          heading,
+          subheading,
+          hourlyRate,
+          propertyTiers[] { label, minHours, maxHours },
+          frequencyOptions[] { label, discountPct },
+          disclaimer,
+          ctaText,
+          ctaHref
+        }
+      }.priceCalculator
+    `)
+    return result ?? PRICE_CALCULATOR_DEFAULTS
+  } catch {
+    return PRICE_CALCULATOR_DEFAULTS
   }
 }
 

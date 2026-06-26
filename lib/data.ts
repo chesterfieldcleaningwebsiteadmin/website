@@ -1,4 +1,4 @@
-import type { Service, Testimonial, SiteSettings, AboutPage, ContactPage, PricingPage, PrivacyPage, CookiesPage, Faq } from "./types";
+import type { Service, Testimonial, SiteSettings, AboutPage, ContactPage, PricingPage, PrivacyPage, CookiesPage, Faq, PriceCalculatorSettings } from "./types";
 
 const COMMON_FAQS: Faq[] = [
   {
@@ -53,7 +53,43 @@ export const SITE_SETTINGS: SiteSettings = {
   googleReviewCount: 12,
   streetAddress: "Chesterfield, Derbyshire",
   openingHours: "Monday–Saturday, 8am–6pm",
-  areaPages: [],
+  areaPages: [
+    { name: "Chesterfield", slug: { current: "chesterfield" } },
+    { name: "Brampton", slug: { current: "brampton" } },
+    { name: "Walton", slug: { current: "walton" } },
+    { name: "Hasland", slug: { current: "hasland" } },
+    { name: "Brimington", slug: { current: "brimington" } },
+    { name: "Old Whittington", slug: { current: "old-whittington" } },
+    { name: "Newbold", slug: { current: "newbold" } },
+    { name: "Wingerworth", slug: { current: "wingerworth" } },
+    { name: "Dronfield", slug: { current: "dronfield" } },
+    { name: "Holymoorside", slug: { current: "holymoorside" } },
+    { name: "Staveley", slug: { current: "staveley" } },
+    { name: "Clay Cross", slug: { current: "clay-cross" } },
+    { name: "Ashgate", slug: { current: "ashgate" } },
+    { name: "Calow", slug: { current: "calow" } },
+  ],
+};
+
+export const PRICE_CALCULATOR_DEFAULTS: PriceCalculatorSettings = {
+  show: true,
+  heading: "Get an instant estimate",
+  subheading: "Select your property size and how often you'd like us — we'll show you a ballpark price.",
+  hourlyRate: 15,
+  propertyTiers: [
+    { label: "Studio / 1 bedroom", minHours: 2, maxHours: 3 },
+    { label: "2 bedrooms", minHours: 3, maxHours: 4 },
+    { label: "3 bedrooms", minHours: 4, maxHours: 5 },
+    { label: "4+ bedrooms", minHours: 5, maxHours: 7 },
+  ],
+  frequencyOptions: [
+    { label: "One-off clean", discountPct: 0 },
+    { label: "Fortnightly", discountPct: 0 },
+    { label: "Weekly", discountPct: 10 },
+  ],
+  disclaimer: "Estimates are a guide only. Final price confirmed after a quick chat about your exact needs.",
+  ctaText: "Get your exact quote",
+  ctaHref: "/contact",
 };
 
 export const SERVICES: Service[] = [

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
-import { getServices, getHomePage, getPricingPage } from "@/lib/sanity";
+import PriceEstimator from "@/components/PriceEstimator";
+import { getServices, getHomePage, getPricingPage, getPriceCalculator } from "@/lib/sanity";
 import styles from "./pricing.module.css";
 
 export const revalidate = 60;
@@ -17,10 +18,11 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 export default async function PricingPage() {
-  const [services, home, pricing] = await Promise.all([
+  const [services, home, pricing, calculator] = await Promise.all([
     getServices(),
     getHomePage(),
     getPricingPage(),
+    getPriceCalculator(),
   ]);
 
   return (
@@ -129,6 +131,8 @@ export default async function PricingPage() {
           <p className={styles.note}>{pricing.footerNote}</p>
         </div>
       </section>
+
+      {calculator.show && <PriceEstimator settings={calculator} />}
 
       <CtaBand heading={home.ctaHeading} body={home.ctaBody} />
     </main>

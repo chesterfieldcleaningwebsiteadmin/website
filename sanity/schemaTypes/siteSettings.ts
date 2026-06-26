@@ -78,6 +78,55 @@ export const siteSettings = defineType({
         }),
       ],
     }),
+    defineField({
+      name: "priceCalculator",
+      title: "Price calculator",
+      type: "object",
+      description: "Interactive price estimator shown on the Pricing page. Toggle off to hide it entirely.",
+      fields: [
+        defineField({ name: "show", title: "Show price calculator", type: "boolean", initialValue: true }),
+        defineField({ name: "heading", title: "Heading", type: "string" }),
+        defineField({ name: "subheading", title: "Subheading", type: "string" }),
+        defineField({
+          name: "hourlyRate",
+          title: "Hourly rate (£)",
+          type: "number",
+          description: "Base rate in pounds per hour used to calculate all estimates.",
+        }),
+        defineField({
+          name: "propertyTiers",
+          title: "Property tiers",
+          description: "Property size options with estimated minimum and maximum cleaning hours.",
+          type: "array",
+          of: [{
+            type: "object",
+            fields: [
+              { name: "label", type: "string", title: "Label (e.g. 2 bedrooms)" },
+              { name: "minHours", type: "number", title: "Minimum hours" },
+              { name: "maxHours", type: "number", title: "Maximum hours" },
+            ],
+            preview: { select: { title: "label" } },
+          }],
+        }),
+        defineField({
+          name: "frequencyOptions",
+          title: "Frequency options",
+          description: "How often the customer books. Enter 0 for no discount.",
+          type: "array",
+          of: [{
+            type: "object",
+            fields: [
+              { name: "label", type: "string", title: "Label (e.g. Weekly)" },
+              { name: "discountPct", type: "number", title: "Discount % (e.g. 10 for 10% off)" },
+            ],
+            preview: { select: { title: "label" } },
+          }],
+        }),
+        defineField({ name: "disclaimer", title: "Disclaimer text", type: "string", description: "Small print shown below the estimate." }),
+        defineField({ name: "ctaText", title: "CTA button text", type: "string" }),
+        defineField({ name: "ctaHref", title: "CTA button link", type: "string" }),
+      ],
+    }),
   ],
   preview: { select: { title: "businessName" } },
 });

@@ -50,6 +50,7 @@ export async function getServices(): Promise<Service[]> {
       *[_type == "service"] | order(displayOrder asc) {
         _id,
         metaTitle,
+        metaDescription,
         title,
         "slug": slug.current,
         eyebrow,
@@ -77,6 +78,7 @@ export async function getService(slug: string): Promise<Service | null> {
       *[_type == "service" && slug.current == $slug][0] {
         _id,
         metaTitle,
+        metaDescription,
         title,
         "slug": slug.current,
         eyebrow,

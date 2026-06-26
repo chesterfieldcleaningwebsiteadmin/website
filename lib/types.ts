@@ -6,6 +6,7 @@ export interface Faq {
 export interface Service {
   _id?: string;
   metaTitle?: string;
+  metaDescription?: string;
   title: string;
   slug: string;
   shortBlurb: string;

@@ -51,8 +51,7 @@ export default async function HomePage() {
           googleReviewsUrl={home.googleReviewsUrl}
           googleRating={settings.googleRating}
           googleReviewCount={settings.googleReviewCount}
-          googleWriteReviewUrl={settings.googleWriteReviewUrl}
-          eyebrow={home.testimonialsEyebrow}
+eyebrow={home.testimonialsEyebrow}
           heading={home.testimonialsHeading}
         />
         {home.gallery?.length ? <Gallery items={home.gallery} /> : null}
